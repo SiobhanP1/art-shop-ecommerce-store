@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container header-container h-100">
+    <div class="row h-100 mt-100">
+        <div>
+            <h1 class="">Artwork</h1>
+            <div class="my-5">
+                <h4>
+                    <a class="btn btn-primary btn-lg" href="">View Art by Local Artists</a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container results-container">
+    <div class="row">
+        {% for artwork in all_artwork %}
+        <div class="col-12 col-lg-2 col-xl-3">
+            <div class="card h-100">
+                {% if artwork.image %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+                    </a>
+                {% else %}
+
+                {% endif %}
+                <div class="card-body text-center">
+                    <h4>{{ artwork.title }}</h4>
+                    <div>
+                        <h6>{{ artwork.artist }}</h6>
+                    </div>
+                    <div>
+                        <p>€{{ artwork.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}

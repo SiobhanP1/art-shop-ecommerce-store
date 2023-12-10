@@ -54,7 +54,7 @@
                 <div class="text-md-left">
                     <div>
                         <span class="navbar-brand">
-                            <a href="">ARTSHOP</a>
+                            <a href="{% url 'home' %}">ARTSHOP</a>
                         </span>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                             <span>Burger Icon</span>
@@ -62,13 +62,13 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a href="nav-link">Art</a>
+                                    <a class="nav-link" href="{% url 'all_artwork' %}">Art</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="nav-link">Artists</a>
+                                    <a class="nav-link" href="">Artists</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="nav-link">About</a>
+                                    <a class="nav-link" href="">About</a>
                                 </li>
                             </ul>
                         </div>
