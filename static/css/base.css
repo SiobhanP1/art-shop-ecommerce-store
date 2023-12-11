@@ -9,3 +9,7 @@ h1, h2, h3 {
 .header-container {
     margin-top: 5vh;
 }
+
+.back-to-top-btn a {
+    color: white;
+}
