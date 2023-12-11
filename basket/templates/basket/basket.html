@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container header-container h-100">
+    <div class="row h-100 mt-100">
+        <div>
+            <h1 class="">My Basket</h1>
+        </div>
+    </div>
+</section>
+<section class="container results-container">
+    <div class="row">
+        <div class="col">
+            {% if basket_items %}
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-3">1</td>
+                            <td class="py-3">2</td>
+                            <td class="py-3">3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div>
+                <p>Your basket is empty.</p>
+                <a class="btn btn-info" href="{% url 'all_artwork' %}">Keep Shopping</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+  
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+{% endblock %}

@@ -50,7 +50,7 @@
         {% endfor %}
     </div>
     <div class="btn btn-info back-to-top-btn">
-        <a class="back-to-top-link" href="">
+        <a class="back-to-top-link">
             <i class="bi bi-chevron-up my-auto mx-auto"></i> Back to Top
         </a>
     </div>
@@ -60,10 +60,12 @@
 {% block postloadjs %}
 {{ block.super }}
 
+<!--
 <script type="text/javascript">
     $.('.back-to-top-link').click(function(e) {
         window.scrollTo(0,0);
     });
 </script>
+-->
 
 {% endblock %}
