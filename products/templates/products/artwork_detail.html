@@ -5,42 +5,34 @@
 <section class="container header-container h-100">
     <div class="row h-100 mt-100">
         <div>
-            <h1 class="">Artwork</h1>
+            <h1 class="">{{ artwork.title }}</h1>
             <div class="my-5">
-                <h4>
-                    <a class="btn btn-primary btn-lg" href="">View Art by Local Artists</a>
-                </h4>
+                <h4>A Painting By {{ artwork.artist }}</h4>
             </div>
         </div>
     </div>
 </section>
-<section class="container results-container">
+<section class="container">
     <div class="row">
-        {% for artwork in all_artwork %}
-        <div class="col-12 col-lg-2 col-xl-3">
+        <div class="col-12">
             <div class="card h-100">
                 {% if artwork.image %}
-                    <a href="{% url 'artwork_detail' artwork.id %}">
+                    <a href="">
                         <img class="card-img-top img-fluid" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
                     </a>
                 {% else %}
 
                 {% endif %}
                 <div class="card-body text-center">
-                    <h4>{{ artwork.title }}</h4>
                     <div>
-                        <h6>{{ artwork.artist }}</h6>
+                        <p>{{ artwork.description }}</p>
                     </div>
                     <div>
                         <p>€{{ artwork.price }}</p>
                     </div>
-                    <div>
-                        <a class="btn btn-primary btn-lg" href="{% url 'artwork_detail' artwork.id %}">View Details</a>
-                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
 
 </section>
