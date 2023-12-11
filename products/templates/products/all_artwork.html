@@ -16,6 +16,13 @@
 </section>
 <section class="container results-container">
     <div class="row">
+        <div class="col-12 text-center">
+            {% if search_term %}
+            <p class="text-muted">{{ all_artwork|length }} result(s) found for <strong>{{ search_term }}</strong></p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
         {% for artwork in all_artwork %}
         <div class="col-12 col-lg-2 col-xl-3">
             <div class="card h-100">
