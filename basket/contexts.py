@@ -10,13 +10,14 @@ def basket_contents(request):
     number_items = 0
     basket = request.session.get('basket', {})
 
-    for item_id in basket.items():
+    for item_id, quantity in basket.items():
         artwork = get_object_or_404(Artwork, pk=item_id)
         total += artwork.price
         number_items += 1
         basket_items.append({
             'item_id': item_id,
             'artwork': artwork,
+            'quantity': quantity,
         })
 
     grand_total = total + settings.STANDARD_DELIVERY_COST

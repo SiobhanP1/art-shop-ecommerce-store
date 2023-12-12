@@ -12,6 +12,7 @@
 <section class="container results-container">
     <div class="row">
         <div class="col">
+            {{ basket_items }}
             {% if basket_items %}
             <div class="table-responsive">
                 <table class="table table-borderless">
@@ -23,10 +24,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for item in basket_items %}
                         <tr>
-                            <td class="py-3">1</td>
-                            <td class="py-3">2</td>
-                            <td class="py-3">3</td>
+                            <td class="py-3">{{ item.artwork.title }}</td>
+                            <td class="py-3">{{ item.artwork.artist }}</td>
+                            <td class="py-3">€{{ item.artwork.price }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <h6>Total: €{{ total|floatformat }}</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <h6>Delivery: €{{ standard_delivery_cost|floatformat }}</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <h6>Grand Total: €{{ grand_total|floatformat }}</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <a class="btn" href="">Return to Shop</a>
+                                <a class="btn btn-info" href="">Secure Checkout</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
