@@ -13,3 +13,12 @@ h1, h2, h3 {
 .back-to-top-btn a {
     color: white;
 }
+
+/* -------------------------------- Bootstrap Toasts */
+
+.message-container {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 99;
+}

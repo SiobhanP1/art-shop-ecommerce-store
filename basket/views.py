@@ -21,6 +21,7 @@ def add_to_basket(request, item_id):
         messages.info(request, f"{artwork.title} is already in your basket.")
     else:
         basket[item_id] = 1
+        messages.success(request, f"{artwork.title} successfully added to basket.")
         request.session['basket'] = basket
 
     print(request.session['basket'])
