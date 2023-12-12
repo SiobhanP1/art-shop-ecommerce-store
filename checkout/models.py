@@ -1,6 +1,7 @@
 from django.db import models
 
 from products.models import Artwork
+from django.db.models import Sum
 
 import uuid
 
