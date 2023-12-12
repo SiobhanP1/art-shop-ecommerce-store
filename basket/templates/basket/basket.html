@@ -4,7 +4,7 @@
 {% block content %}
 <section class="container header-container h-100">
     <div class="row h-100 mt-100">
-        <div>
+        <div class="mb-2">
             <h1 class="">My Basket</h1>
         </div>
     </div>
@@ -14,10 +14,14 @@
         <div class="col">
             {{ basket_items }}
             {% if basket_items %}
+            <div>
+                <p>You have {{ number_items }} items in your basket.</p>
+            </div>
             <div class="table-responsive">
                 <table class="table table-borderless">
                     <thead>
                         <tr>
+                            <th scope="col">Item ID</th>
                             <th scope="col">Title</th>
                             <th scope="col">Artist</th>
                             <th scope="col">Price</th>
@@ -26,9 +30,18 @@
                     <tbody>
                         {% for item in basket_items %}
                         <tr>
+                            <td class="py-3">{{ item.artwork.id }}</td>
                             <td class="py-3">{{ item.artwork.title }}</td>
                             <td class="py-3">{{ item.artwork.artist }}</td>
                             <td class="py-3">€{{ item.artwork.price }}</td>
+                            <td>
+                                    <div class="">
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" href="{% url 'remove_from_basket' item.item_id %}">
+                                            <small>Remove</small>
+                                        </a>
+                                    </div>
+                                
+                            </td>
                         </tr>
                         {% endfor %}
                         <tr>
@@ -69,5 +82,18 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
+<script>
+    // Remove item from bag and reload page
+    $('.remove-item').click(function(e) {
+        var csrfToken = '{{ csrf_token }}';
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/basket/remove/$(itemId)/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+        $.post(url,data).done(function() {
+            location.reload();
+        })
+    })
+</script>
 
 {% endblock %}

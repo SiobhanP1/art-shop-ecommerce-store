@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.http import HttpResponse
 
 from products.models import Artwork
 
@@ -14,13 +15,6 @@ def add_to_basket(request, item_id):
     artwork = get_object_or_404(Artwork, pk=item_id)
     redirect_url = request.POST.get('redirect_url')
 
-    #bag = request.session.get('bag', [])
-    #if item_id in bag:
-    #    messages.info(request, f"{artwork.title} is already in your basket.")
-    #else: 
-    #    bag.append(item_id)
-    #    request.session['bag'] = bag
-
     basket = request.session.get('basket', {})
 
     if item_id in list(basket.keys()):
@@ -32,3 +26,21 @@ def add_to_basket(request, item_id):
     print(request.session['basket'])
 
     return redirect(redirect_url)
+
+
+def remove_from_basket(request, item_id):
+    """A view to return the basket with requested changes"""
+    # can remove quantity - no quantity changes in POST request object
+    # quantity = int(request.POST.get('quantity'))
+    basket = request.session.get('basket', {})
+    artwork = get_object_or_404(Artwork, pk=item_id)
+
+    try:
+        basket.pop(item_id)
+        messages.success(request, f'{artwork.title} has been removed from your basket.')
+        request.session['basket'] = basket
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Could not remove item from basket due to {e}.')
+        return HttpResponse(status=500)
