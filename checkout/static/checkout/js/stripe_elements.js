@@ -50,9 +50,37 @@ form.addEventListener('submit', function(ev) {
   ev.preventDefault(); // Prevent POST 
   card.update({'disabled': true});
   $('#submit-button').attr('disabled', true);
+  $('#payment-form').fadeToggle(100);
+  $('#loading-overlay').fadeToggle(100);
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
       card: card,
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: $.trim(form.full_name.value),
+          phone: $.trim(form.phone_number.value),
+          email: $.trim(form.email.value),
+          address: {
+            line1: $.trim(form.street_address1.value),
+            line2: $.trim(form.street_address2.value),
+            city: $.trim(form.town_or_city.value),
+            country: $.trim(form.country.value),
+            state: $.trim(form.county.value),
+          },
+          shipping: {
+            name: $.trim(form.full_name.value),
+            phone: $.trim(form.phone_number.value),
+            address: {
+              line1: $.trim(form.street_address1.value),
+              line2: $.trim(form.street_address2.value),
+              city: $.trim(form.town_or_city.value),
+              country: $.trim(form.country.value),
+              postal_code: $.trim(form.postcode.value),
+              state: $.trim(form.county.value),
+          },        
+        }
+      }  
     }
   }).then(function(result) {
     if (result.error) {
@@ -60,6 +88,8 @@ form.addEventListener('submit', function(ev) {
         var html =
           `<span>${result.error.message}</span>`;
         $(errorDiv).html(html);
+        $('#payment-form').fadeToggle(100); // Remove?
+        $('#loading-overlay').fadeToggle(100);
         card.update({'disabled': false});
         $('#submit-button').attr('disabled', false);
     } else {
