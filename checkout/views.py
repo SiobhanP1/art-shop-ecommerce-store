@@ -4,7 +4,7 @@ from django.contrib import messages
 from .forms import OrderForm
 
 
-def Checkout(request):
+def checkout(request):
     """A view to return the checkout page"""
     basket = request.session.get('basket', {})
     if not basket:
