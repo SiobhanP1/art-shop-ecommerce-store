@@ -38,13 +38,14 @@ class Order(models.Model):
 
     def update_totals(self):
         """Update total and grand total when new order item added"""
-        self.order_total = self.lineitems.aggregate(Sum(self.artwork.price))
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     artwork = models.ForeignKey(Artwork, null=False, blank=False, on_delete=models.CASCADE)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=1, editable=False)
 
     def __str__(self):
         return f'{self.artwork.title} from order {self.order.order_number}'
