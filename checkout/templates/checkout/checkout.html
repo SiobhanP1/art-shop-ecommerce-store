@@ -15,6 +15,7 @@
             <div class="row">
                 <p>Please enter your details.</p>
                 <form id="payment-form" action="{% url 'checkout' %}" method="POST">
+                    {% csrf_token %}
                     <fieldset class="">
                         <legend class="fieldset-label">
                             Personal Details
@@ -43,7 +44,7 @@
                                 <label class="form-check-label" for="id-save-info">
                                     Save delivery information.
                                 </label>
-                                <input class="form-check-input" type="checkbox" name="save-info">
+                                <input id="id-save-info" class="form-check-input" type="checkbox" name="save-info">
                             </div>
                             <div>
                                 <label class="form-check-label" for="id-save-info">
