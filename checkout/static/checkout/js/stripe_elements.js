@@ -79,7 +79,7 @@ form.addEventListener('submit', function(ev) {
               postal_code: $.trim(form.postcode.value),
               state: $.trim(form.county.value),
           },        
-        }
+        },
       }  
     }
   }).then(function(result) {
@@ -88,7 +88,7 @@ form.addEventListener('submit', function(ev) {
         var html =
           `<span>${result.error.message}</span>`;
         $(errorDiv).html(html);
-        $('#payment-form').fadeToggle(100); // Remove?
+        $('#payment-form').fadeToggle(100); 
         $('#loading-overlay').fadeToggle(100);
         card.update({'disabled': false});
         $('#submit-button').attr('disabled', false);
