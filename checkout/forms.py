@@ -10,7 +10,7 @@ class OrderForm(forms.ModelForm):
     'street_address1', 'street_address2', 'country')
 
     def __init__(self, *args, **kwargs):
-        """Set placeholders and autofocus on first field"""
+        """Set autofocus on first field"""
         super().__init__(*args, **kwargs)
 
         for field in self.fields:
