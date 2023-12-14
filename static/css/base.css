@@ -60,5 +60,10 @@ box-shadow: 0 1px 3px 0 #cfd7df;
 /* -------------------------------- Allauth templates */
 
 .allauth-form-inner-content {
+    color: blue;
+}
 
+.allauth-form-inner-content button,
+.allauth-form-inner-content input {
+   border: green;
 }
