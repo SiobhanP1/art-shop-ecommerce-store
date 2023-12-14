@@ -3,6 +3,7 @@ from django_countries.fields import CountryField
 
 from products.models import Artwork
 from django.db.models import Sum
+from profiles.models import UserProfile
 
 import uuid
 
@@ -11,6 +12,7 @@ class Order(models.Model, CountryField):
 
     order_number = models.CharField(max_length=2, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, blank=True, null=True, related_name='orders')
     email = models.EmailField(max_length=284, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country*', null=False, blank=False)
