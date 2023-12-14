@@ -53,6 +53,7 @@ def checkout(request):
         }
 
         order_form = OrderForm(form_data)
+
         if order_form.is_valid():
             order = order_form.save()
             order_form.save() # Remove?
@@ -68,8 +69,11 @@ def checkout(request):
                     messages.error(request, ('Item not in our database.'))
                     order.delete()
                     return redirect(reverse('view_bag'))
+
+            # Save information
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
+
         else:
             messages.error(request, 'Error in form')
     else:
@@ -81,12 +85,12 @@ def checkout(request):
         current_basket = basket_contents(request)
         total = current_basket['grand_total']
         stripe_total = round(total * 100)
-   
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount = stripe_total,
             currency = settings.STRIPE_CURRENCY,
         )
+
 
         order_form = OrderForm()
 
@@ -129,6 +133,36 @@ def checkout_success(request, order_number):
 
     messages.success(request, f'Your order has been placed successfully. Your order number is {order_number}. A confirmation email will be sent to this email address: {order.email}')
     
+    current_basket = basket_contents(request)
+    total = current_basket['grand_total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount = stripe_total,
+        currency = settings.STRIPE_CURRENCY,
+    )
+
+    # Prefill form with current data
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            order_form = OrderForm(initial= {
+                'full_name': profile.user.get_full_name(),
+                'email': profile.user_email,
+                'phone_number': profile.default_phone_number,
+                'country': profile.default_country,
+                'postcode': profile.default_postcode,
+                'town_or_city': profile.default_town_or_city,
+                'street_address1': profile.default_street_address1,
+                'street_address2': profile.default_street_address2,
+                'county': profile.default_county,
+            })
+        except UserProfile.DoesNotExist:
+            order_form = OrderForm()
+    else:
+            order_form = OrderForm()
+
+
     if 'basket' in request.session:
         del request.session['basket']
 

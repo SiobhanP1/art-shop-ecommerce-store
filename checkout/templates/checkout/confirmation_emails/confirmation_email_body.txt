@@ -1,0 +1,24 @@
+Dear {{ order.full_name }},
+
+Thank you for your order. We are getting it ready to ship. 
+
+Your order details are as follows:
+Order number: {{ order.order_number }}
+Date: {{ order.date }}
+Total {{ order.order_total }}
+Delivery {{ order.delivery_cost }}
+Grand Total {{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }} in
+{{ order.town_or_city }}, {{ order.country }}. The delivery company will 
+contact you at {{ order.phone_number }} when your delivery date is 
+scheduled.
+
+If you have any questions about your order or if any details above
+are incorrect, please contact us at {{ contact_email }}.
+
+Thank you.
+
+Sincerely,
+
+Art Shop
