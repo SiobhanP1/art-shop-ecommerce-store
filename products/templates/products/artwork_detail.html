@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-<section class="container header-container h-100">
+<section class="container header-container">
     <div class="row h-100 mt-100">
-        <div>
+        <div class="text-center mx-auto">
             <h1 class="">{{ artwork.title }}</h1>
             <div class="my-5">
-                <h4>A Painting By {{ artwork.artist }}</h4>
+                <h4>A Painting By <strong>{{ artwork.artist }}</strong></h4>
             </div>
         </div>
     </div>
@@ -17,9 +17,9 @@
         <div class="col-12">
             <div class="card h-100">
                 {% if artwork.image %}
-                    <a href="">
-                        <img class="card-img-top img-fluid" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
-                    </a>
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+                </a>
                 {% else %}
 
                 {% endif %}
@@ -30,16 +30,17 @@
                     <div>
                         <p>€{{ artwork.price }}</p>
                     </div>
-                </div>
-                <form class="form" action="{% url 'add_to_basket' artwork.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
-                            <input class="btn btn-info" type="submit" value="Add to Basket">
+
+                    <form class="form" action="{% url 'add_to_basket' artwork.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <input class="btn btn-info rounded-0" type="submit" value="Add to Basket">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

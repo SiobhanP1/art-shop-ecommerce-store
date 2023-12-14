@@ -3,12 +3,11 @@
 
 {% block content %}
 <section class="container header-container h-100">
-    <div class="row h-100 mt-100">
-        <div>
-            <h1 class="">Artwork</h1>
+    <div class="row mt-100 text-center mx-auto">
+        <div class="">
+            <h1 class="">Gallery</h1>
             <div class="my-5">
                 <h4>
-                    <a class="btn btn-primary btn-lg" href="">View Art by Local Artists</a>
                 </h4>
             </div>
         </div>
@@ -23,35 +22,37 @@
         </div>
     </div>
     <div class="row">
-        {% for artwork in all_artwork %}
-        <div class="col-12 col-lg-2 col-xl-3">
-            <div class="card h-100">
+        
+        <div class="card-deck">
+            {% for artwork in all_artwork %}
+            <div class="card mb-5 w-75 mx-auto">
                 {% if artwork.image %}
                 <a href="{% url 'artwork_detail' artwork.id %}">
                     <img class="card-img-top img-fluid" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
                 </a>
                 {% else %}
-
+                <p class="text-italic">No image currently available.</p>
                 {% endif %}
                 <div class="card-body text-center">
-                    <h4>{{ artwork.title }}</h4>
+                    <h4 class="text-italic">{{ artwork.title }}</h4>
                     <div>
-                        <h6>{{ artwork.artist }}</h6>
+                        <h6>by <strong>{{ artwork.artist }}</strong></h6>
                     </div>
                     <div>
                         <p>€{{ artwork.price }}</p>
                     </div>
                     <div>
-                        <a class="btn btn-primary btn-lg" href="{% url 'artwork_detail' artwork.id %}">View Details</a>
+                        <a class="btn btn-primary btn-md rounded-0" href="{% url 'artwork_detail' artwork.id %}">View Details</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        
     </div>
-    <div class="btn btn-info back-to-top-btn">
+    <div class="btn btn-info back-to-top-btn rounded-0 float-right mb-10">
         <a class="back-to-top-link">
-            <i class="bi bi-chevron-up my-auto mx-auto"></i> Back to Top
+            <i class="bi bi-chevron-up my-auto mx-auto"></i>  Back to Top
         </a>
     </div>
 </section>

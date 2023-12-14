@@ -56,7 +56,9 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save()
-            order_form.save() # Remove?
+            
+            # Add pid, original basket here
+
             for item_id, quantity in basket.items():
                 try:
                     artwork = Artwork.objects.get(id=item_id)
@@ -91,23 +93,50 @@ def checkout(request):
             currency = settings.STRIPE_CURRENCY,
         )
 
+        current_basket = basket_contents(request)
+        total = current_basket['grand_total']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount = stripe_total,
+            currency = settings.STRIPE_CURRENCY,
+        )
 
-        order_form = OrderForm()
+        # Prefill form with current data
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial= {
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user_email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
-        if not stripe_public_key:
-            messages.warning('No stripe public key found.')
+    if not stripe_public_key:
+        messages.warning('No stripe public key found.')
 
-        template = 'checkout/checkout.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': 'pk_test_51OMu79DWBoCihvaUVsCYsnNxaTFImnaKB1n6lULQTmGLkwzkVNy4pGJ1ayCBN75sTCdr8yQcnhXBy5FmrL9sPLpn00Xc8fu5s5',
-            'client_secret': intent.client_secret,
-        }
-        return render(request, template, context)
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': 'pk_test_51OMu79DWBoCihvaUVsCYsnNxaTFImnaKB1n6lULQTmGLkwzkVNy4pGJ1ayCBN75sTCdr8yQcnhXBy5FmrL9sPLpn00Xc8fu5s5',
+        'client_secret': intent.client_secret,
+    }
+    return render(request, template, context)
 
 
 def checkout_success(request, order_number):
     """A view to display a successful checkout message and to delete the expired session"""
+    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -132,36 +161,6 @@ def checkout_success(request, order_number):
 
 
     messages.success(request, f'Your order has been placed successfully. Your order number is {order_number}. A confirmation email will be sent to this email address: {order.email}')
-    
-    current_basket = basket_contents(request)
-    total = current_basket['grand_total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount = stripe_total,
-        currency = settings.STRIPE_CURRENCY,
-    )
-
-    # Prefill form with current data
-    if request.user.is_authenticated:
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-            order_form = OrderForm(initial= {
-                'full_name': profile.user.get_full_name(),
-                'email': profile.user_email,
-                'phone_number': profile.default_phone_number,
-                'country': profile.default_country,
-                'postcode': profile.default_postcode,
-                'town_or_city': profile.default_town_or_city,
-                'street_address1': profile.default_street_address1,
-                'street_address2': profile.default_street_address2,
-                'county': profile.default_county,
-            })
-        except UserProfile.DoesNotExist:
-            order_form = OrderForm()
-    else:
-            order_form = OrderForm()
-
 
     if 'basket' in request.session:
         del request.session['basket']

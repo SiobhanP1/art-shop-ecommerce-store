@@ -33,8 +33,9 @@ def remove_from_basket(request, item_id):
     """A view to return the basket with requested changes"""
     # can remove quantity - no quantity changes in POST request object
     # quantity = int(request.POST.get('quantity'))
-    basket = request.session.get('basket', {})
+
     artwork = get_object_or_404(Artwork, pk=item_id)
+    basket = request.session.get('basket', {})
 
     try:
         basket.pop(item_id)

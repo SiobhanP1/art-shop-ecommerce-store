@@ -47,11 +47,11 @@
 
 <body>
     <header class="container-fluid w-100">
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light">
             <div class="container-fluid">
                 <div class="">
                     <span class="navbar-brand">
-                        <a href="{% url 'home' %}">ARTSHOP</a>
+                        <a class="logo-font text-uppercase font-weight-bold" href="{% url 'home' %}">Artshop</a>
                     </span>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNavDropdown">
@@ -87,16 +87,13 @@
                 </div>
                 <div class="">
                     <ul class="navbar-nav list-inline text-md-right">
-                        <!--<ul class="list-inline list-unstyled text-center text-md-right">
-                        <li class="list-inline-item dropdown">-->
                         <li class="nav-item dropdown list-inline-item">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownAccountMenu" data-toggle="dropdown"
                                 href="">
                                 <i class="bi bi-person-fill my-auto mx-auto"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="">
-                                <a class="dropdown-item" href="">My Profile</a>
-                                <a class="dropdown-item" href="">Manage Products</a>
+                                <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
                             </div>
                         </li>
                         <li class="nav-item list-inline-item">
@@ -108,7 +105,7 @@
             </div>
         </nav>
         <div class="text-center mt-1">
-            <p><strong>Delivery Throughout Ireland for €{{ standard_delivery_cost }}</strong></p>
+            <p class="font-italic"><strong>Delivery Throughout Ireland for €{{ standard_delivery_cost }}</strong></p>
         </div>
     </header>
 

@@ -3,85 +3,88 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-12 col-lg-6">
+    <div class="col-12">
         <section class="container header-container">
             <div class="row">
-                <div class="mb-2">
+                <div class="col mb-2">
                     <h1 class="">Checkout</h1>
                 </div>
             </div>
         </section>
-        <section class="container form-container mt-100">
+        <section class="container fluid-container mx-auto mt-100">
             <div class="row">
-                <p>Please enter your details.</p>
-                <form id="payment-form" action="{% url 'checkout' %}" method="POST">
-                    {% csrf_token %}
-                    <fieldset class="">
-                        <legend class="fieldset-label">
-                            Personal Details
-                        </legend>
-                        {{ order_form.full_name|as_crispy_field }}
-                        {{ order_form.email|as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="">
-                        <legend class="fieldset-label">
-                            Delivery Information
-                        </legend>
-                        {{ order_form.street_address1|as_crispy_field }}
-                        {{ order_form.street_address2|as_crispy_field }}
-                        {{ order_form.town_or_city|as_crispy_field }}
-                        {{ order_form.county|as_crispy_field }}
-                        {{ order_form.country|as_crispy_field }}
-                        {{ order_form.postcode|as_crispy_field }}
-                        {{ order_form.phone_number|as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="">
-                        <legend class="fieldset-label">
-                            Delivery Information
-                        </legend>
-                        <div class="form-check form-check-online">
-                            <div>
-                                <label class="form-check-label" for="id-save-info">
-                                    Save delivery information.
-                                </label>
-                                <input id="id-save-info" class="form-check-input" type="checkbox" name="save-info">
+                <div>
+                    <form id="payment-form" action="{% url 'checkout' %}" method="POST">
+                        {% csrf_token %}
+                        <fieldset class="">
+                            <legend class="fieldset-label">
+                                Personal Details
+                            </legend>
+                            {{ order_form.full_name|as_crispy_field }}
+                            {{ order_form.email|as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="mb-3">
+                            <legend class="fieldset-label">
+                                Delivery Information
+                            </legend>
+                            {{ order_form.street_address1|as_crispy_field }}
+                            {{ order_form.street_address2|as_crispy_field }}
+                            {{ order_form.town_or_city|as_crispy_field }}
+                            {{ order_form.county|as_crispy_field }}
+                            {{ order_form.country|as_crispy_field }}
+                            {{ order_form.postcode|as_crispy_field }}
+                            {{ order_form.phone_number|as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="mb-3">
+                            <legend class="fieldset-label">
+                                Save Delivery Information
+                            </legend>
+                            <div class="form-check form-check-inline">
+                                {% if user.is_authenticated %}
+                                <div>
+                                    <label class="form-check-label" for="id-save-info">
+                                        Save delivery information.
+                                    </label>
+                                    <input id="id-save-info" class="form-check-input" type="checkbox" name="save-info">
+                                </div>
+                                {% else %}
+                                <div>
+                                    <label class="form-check-label" for="id-save-info">
+                                        <a href="{% url 'account_signup' %}">Register for an account</a>
+                                        or
+                                        <a href="{% url 'account_login' %}">log in</a>
+                                        to save this information.
+                                    </label>
+                                </div>
+                                {% endif %}
                             </div>
-                            <div>
-                                <label class="form-check-label" for="id-save-info">
-                                    <a class="" href="">Register for an account</a>
-                                    or
-                                    <a class="" href="">log in</a>
-                                    to save this information.
-                                </label>
-                            </div>
+                        </fieldset>
+                        <fieldset class="mb-3">
+                            <legend class="fieldset-label">
+                                Payment Information
+                            </legend>
+
+                            <!--Stripe card element-->
+                            <div id="card-element"></div>
+
+                            <!--Card error notifications-->
+                            <div id="card-errors" type="alert"></div>
+                        </fieldset>
+                        <div class="submit-button">
+                            <a class="btn" href="{% url 'view_basket' %}">
+                                <span>Return to Basket</span>
+                            </a>
+                            <button class="btn btn-primary rounded-0" id="submit-button">
+                                Place Order
+                            </button>
                         </div>
+                    </form>
+                </div>
             </div>
-            </fieldset>
-            <fieldset>
-                <legend class="fieldset-label">
-                    Payment Information
-                </legend>
-                <!--Stripe card element-->
-                <div id="card-element"></div>
-                <!--Card error notifications-->
-                <div id="card-errors" type="alert"></div>
-            </fieldset>
-            <div class="submit-button">
-                <a class="btn" href="{% url 'view_basket' %}">
-                    <span>Return to Basket</span>
-                </a>
-                <button class="btn btn-primary" id="submit-button">
-                    Place Order
-                </button>
-            </div>
-            </form>
-
+        </section>
     </div>
-
-    </section>
 </div>
-</div>
-<div id="loading-overlay" class="d-flex justify-content-center">
+<div id="loading-overlay" class="d-flex justify-content-center hidden">
     <div class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
     </div>

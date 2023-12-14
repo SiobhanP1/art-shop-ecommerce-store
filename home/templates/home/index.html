@@ -2,17 +2,24 @@
 {% load static %}
 
 {% block content %}
-<section class="container header-container h-100">
+<section class="container header-container">
     <div class="row h-100 mt-100">
-        <div>
-            <h1 class="">Local Artists Digital Gallery</h1>
+        <div class="text-center mx-auto">
+            <div>
+                <h1 class="">Local Artists Digital Gallery</h1>
+            </div>
+            <div class="mt-3">
+                <p><strong>Supporting Artists in the West of Ireland</strong></p>
+            </div>
             <div class="my-5">
                 <h4>
-                    <a class="btn btn-primary btn-lg" href="{% url 'all_artwork' %}">View Art by Local Artists</a>
+                    <a class="btn btn-primary btn-lg rounded-0" href="{% url 'all_artwork' %}">
+                        View Art
+                    </a>
                 </h4>
             </div>
         </div>
     </div>
-    
+
 </section>
 {% endblock %}
