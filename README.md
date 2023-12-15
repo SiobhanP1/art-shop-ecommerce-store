@@ -10,6 +10,8 @@ the West of Ireland.
 * The live version can be accessed here: [Art Shop](https://art-shop-ecommerce-71a1569e3f02.herokuapp.com/)
 
 
+ADD BUSINESS INFORMATION
+
 ## AGILE Methodology
 
 ### MILESTONES - EPICS - SPRINTS
@@ -47,7 +49,7 @@ the West of Ireland.
 ### Accessibility
 
 The following measures were taken to help ensure accessibility:
-* All images include an 'alt' description.
+* Images include an 'alt' description.
 * Where appropriate, HTML elements include 'aria-label' or 'aria-labelledby' attributes.
 * There is a high level of contrast between the background and any text through the site to help
 ensure readability.
@@ -58,10 +60,6 @@ ensure readability.
 * The admin user can create, read/view, update and delete both products and orders after logging in to the admin dashboard.
 
 Key features are described below.
-
-### Home Page
-
-* The home page 
 
 ### Navigation Bar
 
@@ -112,11 +110,25 @@ that product.
 
 ### My Basket Page
 
+* The basket page displays a list of all items in the basket including their title, order_number and price.
+* There is a button next to each item allowing users to delete the items they do not want to buy.
+* The grand_total including delivery is displayed at the bottom of the page above the Secure Checkout button.
+
 ### The Checkout Page
+
+* The checkout page includes a form in which the user can enter their personal details, their 
+delivery information and their payment information.
+* There is an option for the user to save their information by checking a box.
 
 ### The Checkout Success Page
 
-### The User Profile Page
+* The checkout success page displays a message stating that the order was successful and the order 
+information.
+
+### Toast Alerts
+
+* Toast alerts inform the user of successful actions such as adding or removing an item from the basket, or the completion of an order.
+* toasts are also used to let the user know when there has been an error and an action cannot be carried out.
 
 
 ## Future Features
@@ -132,25 +144,34 @@ social media pages.
 
 ## Data Model
 
-Unique data models were created as described below.
+Custom data models were created as described below.
 
-### MODEL 1: 
+### Model 1: Artwork
 
-* Attributes
+* The Artwork Model in the 'products' app specifies the information to be stored about any piece of art in the database for this application.
+* Fields include the title, artist, price, description and media. 
+* The relationship is a One-to-Many relationship with the Artist Model as one artist can have multiple works of art for sale at one time.
 
-### MODEL 2
+### Model 2: Artist
 
-* Attribute
+* The Artist Model specifies the information to be stored about each artist in the database.
+* Fields include the full_name of the artist, and an about_artist attribute.
 
-### MODEL 3
+### Model 3
+
+* The checkout app has both an Order model and an OrderItem model.
+* The OrderItem model is customised for order items in this application. Fields include the order,
+the artwork and the lineitem_total.
 
 ### Entity Relationship Diagram (ERD)
 
-The Models used in this project were mapped out as in the Entity Relationship Diagram below.
+The Models used in the products and checkout apps in this project were mapped out as in the Entity Relationship Diagram below.
 
-![entity relationship diagram](static/images/FILE NAME HERE.png)
+![entity relationship diagram](media/products-checkout-erd.png)
 
-ADD FILE ABOVE SHOWING ERD
+### Additional Models
+/workspace/art-shop-ecommerce-store/art_shop
+* The 'profile' app uses a Profile model to store useful information about users.
 
 
 ## Django MVT Structure
@@ -171,11 +192,10 @@ were modified to fit the style of the website while keeping their original funct
 * Github was used for storing, sharing the repository and version control. Github Boards
 were used to store and plan user story, sprint, milestone and other required information
 as part of the Agile method and approach to workflow.
-* LucidChart was used to create the Entity Relationship Diagram (ERD). MAY CHANGE THIS
+* LucidChart was used to create the Entity Relationship Diagram (ERD). 
 * Bootstrap classes and styles were used throughout the application with some modification.
 * ElephantSQL was used to store the database once deployed.
 * AWS was used to store static files after deployment.
-* Mockplus was used to create wireframes. MAY CHANGE THIS
 * Allauth was used for log-in, log-out, and sign-up authentication. 
 * Stripe was used to handle secure checkout and payment by credit card.
 
@@ -184,18 +204,16 @@ as part of the Agile method and approach to workflow.
 
 ### Code Validation 
 
-MUST COMPLETE VALIDATION OF ALL
-
 * Python code was passed through the [Code Institute Python Linter](https://pep8ci.herokuapp.com/). No issues were found.
 
-* HTML code in the template files was validated using the [W3 Validator](https://validator.w3.org/nu/). No errors were found. NOT COMPLETE
+* HTML code in the template files was validated using the [W3 Validator](https://validator.w3.org/nu/). 
 
 * CSS code was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).
-NOT COMPLETE
+No errors were found.
 
 ### Other Testing
 
-* This app was tested for responsiveness using the Google Chrome browser and Chrome DevTools. It has not yet been tested on other browsers.
+* This app was tested for responsiveness using the Google Chrome browser and Chrome DevTools. It has not been tested on other browsers. Some issues remain, particularly at smaller screen widths.
 
 ### Test Cases
 
@@ -220,11 +238,7 @@ field is active.
 12. Click 'Complete Payment'. The user sees the loading icon and then the successful checkout page.
 
 
-### Fixed Bugs
-
-ADD FIXED BUGS
-
-* 
+## Bugs
 
 ### Remaining Bugs
 

@@ -9,6 +9,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Digital gallery selling artwork from local artists in the west of Ireland">
+    <meta name="keywords" content="art, gallery, local artist, buy art, paintings, west of Ireland, painter">
     {% endblock %}
 
     {% block more_meta %}
@@ -18,8 +20,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -86,7 +88,7 @@
                                 href="">
                                 <i class="bi bi-person-fill my-auto mx-auto"></i>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAccountMenu">
                                 <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
                             </div>
                         </li>
