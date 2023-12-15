@@ -2,15 +2,21 @@
 
 ## Purpose
 
-* The external user goal is to view and purchase local art online.
-* The internal user goal is to sell local art online.
+* The external user goal is to view and purchase art by artists from the West of Ireland online.
+* The internal user goal is to provide a means of selling art by local artists online.
 * The site is targeted at those interested in buying art particularly from artists based in 
-the West of Ireland.
+the West of Ireland, as well as those interested in conversations about art and the local art community.
 
 * The live version can be accessed here: [Art Shop](https://art-shop-ecommerce-71a1569e3f02.herokuapp.com/)
 
 
-ADD BUSINESS INFORMATION
+## E-Commerce Business Model / Marketing
+
+The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website, Q&A sessions, and sharing of tips and the stories behind the art. One key social media platform that will be used to do these things is 
+Facebook.
+
+![Facebook Art Shop page](media/initial-facebook-page.png)
+![Artist Spotlight](media/artist%201.png)
 
 ## AGILE Methodology
 
