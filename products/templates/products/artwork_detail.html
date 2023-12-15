@@ -20,8 +20,6 @@
                 <a href="">
                     <img class="card-img-top img-fluid" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
                 </a>
-                {% else %}
-
                 {% endif %}
                 <div class="card-body text-center">
                     <div>
@@ -30,7 +28,6 @@
                     <div>
                         <p>€{{ artwork.price }}</p>
                     </div>
-
                     <form class="form" action="{% url 'add_to_basket' artwork.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">

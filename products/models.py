@@ -3,7 +3,8 @@ from django.db import models
 
 class Artwork(models.Model):
     title = models.CharField(max_length=254, null=False, blank=False)
-    artist = models.ForeignKey('Artist', null=False, blank=False, on_delete=models.CASCADE)
+    artist = models.ForeignKey('Artist', null=False, blank=False,
+                               on_delete=models.CASCADE)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)

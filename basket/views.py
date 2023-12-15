@@ -18,10 +18,12 @@ def add_to_basket(request, item_id):
     basket = request.session.get('basket', {})
 
     if item_id in list(basket.keys()):
-        messages.info(request, f"{artwork.title} is already in your basket.")
+        messages.info(request,
+                      f"{artwork.title} is already in your basket.")
     else:
         basket[item_id] = 1
-        messages.success(request, f"{artwork.title} successfully added to basket.")
+        messages.success(request,
+                         f"{artwork.title} successfully added to basket.")
         request.session['basket'] = basket
 
     print(request.session['basket'])
@@ -39,10 +41,12 @@ def remove_from_basket(request, item_id):
 
     try:
         basket.pop(item_id)
-        messages.success(request, f'{artwork.title} has been removed from your basket.')
+        messages.success(request,
+                         f'{artwork.title} has been removed from your basket.')
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Could not remove item from basket due to {e}.')
+        messages.error(request,
+                       f'Could not remove item from basket due to {e}.')
         return HttpResponse(status=500)

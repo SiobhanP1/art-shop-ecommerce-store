@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, reverse
 from django.db.models import Q
 from django.contrib import messages
 
@@ -17,7 +18,8 @@ def all_artwork(request):
             if not query:
                 messages.error(request, 'Please enter a search query.')
                 return redirect(reverse('all_artwork'))
-            queries = Q(title__icontains=query) | Q(description__icontains=query) | Q(main_media__icontains=query) 
+            queries = Q(
+                title__icontains=query) | Q(description__icontains=query) | Q(main_media__icontains=query)
             all_artwork = all_artwork.filter(queries)
 
     # all_artwork refers to query, sort or view all request results
@@ -32,5 +34,5 @@ def artwork_detail(request, artwork_id):
     """A view to show the details of any artwork"""
 
     artwork = get_object_or_404(Artwork, pk=artwork_id)
-    context = {'artwork': artwork,}
+    context = {'artwork': artwork, }
     return render(request, 'products/artwork_detail.html', context)

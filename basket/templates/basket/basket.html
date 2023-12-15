@@ -9,6 +9,8 @@
         </div>
     </div>
 </section>
+
+<!--Basket contents are displayed here-->
 <section class="container results-container">
     <div class="row">
         <div class="col-12">
@@ -75,7 +77,6 @@
             {% endif %}
         </div>
     </div>
-
 </section>
 {% endblock %}
 
@@ -83,6 +84,7 @@
 {{ block.super }}
 
 <script type="text/javascript">
+
     // Remove item from bag and reload page
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";

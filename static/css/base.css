@@ -64,6 +64,10 @@ box-shadow: 0 1px 3px 0 #cfd7df;
     color: #aab7c4;
 }
 
+#card-element {
+    color: #3c4142 !important;
+}
+
 /* -------------------------------- Allauth templates */
 
 .allauth-form-inner-content {

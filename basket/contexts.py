@@ -3,6 +3,7 @@ from django.conf import settings
 
 from products.models import Artwork
 
+
 def basket_contents(request):
     """"""
     basket_items = []
@@ -24,11 +25,10 @@ def basket_contents(request):
 
     context = {
         'basket_items': basket_items,
-        'total': total, 
+        'total': total,
         'number_items': number_items,
         'standard_delivery_cost': settings.STANDARD_DELIVERY_COST,
         'grand_total': grand_total,
     }
 
     return context
-

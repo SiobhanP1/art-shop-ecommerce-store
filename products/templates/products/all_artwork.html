@@ -13,6 +13,8 @@
         </div>
     </div>
 </section>
+
+<!--Search query number of results found-->
 <section class="container results-container">
     <div class="row">
         <div class="col-12 text-center">
@@ -21,8 +23,9 @@
             {% endif %}
         </div>
     </div>
+
+    <!--Display all products-->
     <div class="row">
-        
         <div class="card-deck">
             {% for artwork in all_artwork %}
             <div class="card mb-5 w-75 mx-auto">
@@ -48,8 +51,9 @@
             </div>
             {% endfor %}
         </div>
-        
     </div>
+
+    <!--Back to top of page button-->
     <div class="btn btn-info back-to-top-btn rounded-0 float-right mb-10">
         <a class="back-to-top-link">
             <i class="bi bi-chevron-up my-auto mx-auto"></i>  Back to Top

@@ -9,7 +9,9 @@ class UserProfileForm(forms.ModelForm):
 
 
     def __init__(*args, **kwargs):
-        """Add placeholders and classes. Autofocus on first field. Remove labels"""
+        """
+        Add placeholders and autofocus on the first field in the form. 
+        """
         super().__init__(self, *args, **kwargs)
         placeholders = {
             'default_phone_number': 'Phone Number',
@@ -27,7 +29,5 @@ class UserProfileForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-
-        # Add classes and remove labels
-        self.fields[field].widget.attrs['class'] = ''
-        #  self.fields[field].label = False
+        self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+        self.fields[field].label = False

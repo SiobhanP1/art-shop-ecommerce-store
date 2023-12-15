@@ -1,12 +1,13 @@
-# Pop-up Restaurant
+# Art Shop E-Commerce Application
 
 ## Purpose
 
-* The external user goal is to 
-* The internal user goal is to 
-* The site is targeted at 
+* The external user goal is to view and purchase local art online.
+* The internal user goal is to sell local art online.
+* The site is targeted at those interested in buying art particularly from artists based in 
+the West of Ireland.
 
-* The live version can be accessed here: ADD LIVE URL HERE
+* The live version can be accessed here: [Art Shop](https://art-shop-ecommerce-71a1569e3f02.herokuapp.com/)
 
 
 ## AGILE Methodology
@@ -40,12 +41,16 @@
 
 ### Typography and Color
 
-ADD HERE
+* The font 'Merriweather' was used throughout the site. 
+* #3c4142 (charcoal grey) was used for all key text, both headings and body.
 
 ### Accessibility
 
-ADD HERE
-
+The following measures were taken to help ensure accessibility:
+* All images include an 'alt' description.
+* Where appropriate, HTML elements include 'aria-label' or 'aria-labelledby' attributes.
+* There is a high level of contrast between the background and any text through the site to help
+ensure readability.
 
 ## Features
 
@@ -61,40 +66,69 @@ Key features are described below.
 ### Navigation Bar
 
 * The navigation bar is located at the top of every page.
-* Logged-out users can 
-* 'Home' returns the user to the home page.
-* 
+* The 'Artshop' icon/button in the top-left of the screen provides a link back to the 
+home page.
+* The 'Art' button brings the users directly to the product display page.
+* The search bar in the center of the navigation bar allows the users to search for 
+products using keywords.
+* The 'person' icon in the top right of the screen provides a quick link to account
+information. Logged-in users can click on 'My Profile' to be brought to their profile
+and order history page. Logged-out users are brought to the sign in page when they click
+on 'My Profile'. 
+* At the very right of the screen, there is a basket icon. Clicking this icon brings 
+the users to the basket page.
+* The navigation bar is visible on all pages, providing quick links to all parts of 
+the site.
 
-### Sign In, Log in and Log out
+### Sign Up, Log in and Log out
 
-* The sign in, log in and log out pages use the templates provided by Django with a little modification.
-* The navigation bar options shown to the user change depending on whether a user is logged-in or logged-out. Users must be authenticated in order to make, view, edit or cancel bookings.
-* The sign in and log in form inputs use built-in Django validation to check that the user enters a suitable password and username. 
+* The sign in, log in and log out pages are modified versions of the templates provided by
+Allauth for user account and authentication.
+* Logged-in users can access their profile page, view previous orders and edit or delete 
+their information.
+* The sign in and log in form inputs use built-in Django validation to check that the user 
+enters a suitable password and username. 
+* Logged-in admin users can access the admin dashboard and view, edit, add and delete product,
+user and order information.
  
-### FEATURE
+### Home Page / Index.html
 
-* The 
+* When a user first arrives on the website, they see the main heading inviting them to view
+art by local artists. There is a large button which links to the main product page.
 
-### FEATURE
+### Products Page
 
-* The 
+* The main products page displays basic information about all available products including an
+image, the title, the artist and the price.
+* There is a button under each product linking the user to a detailed information page for 
+that product.
 
-### FEATURE
+### Detailed Product Page
 
-* 
+* Clicking on any product on the products page will bring the user to a detailed page for
+that product.
+* The user will see a large image of the product and detailed information. 
+* There is an 'Add to Basket' button under the product information.
 
+### My Basket Page
 
-## Additional Features
+### The Checkout Page
 
-DESCRIPTION IN BRIEF
+### The Checkout Success Page
 
-* A
+### The User Profile Page
 
 
 ## Future Features
 
-ADD HERE
-
+* Order confirmation emails to be sent to users after successfully completing a user.
+* An 'About page.
+* A footer containing important links such as to detailed delivery information and 
+social media pages.
+* An order summary to be displayed on the checkout page.
+* Alternative payment options to be provided when checking out.
+* A hero image on the home page.
+* A more extensive collection of artwork, each with relevant data.
 
 ## Data Model
 
@@ -118,10 +152,11 @@ The Models used in this project were mapped out as in the Entity Relationship Di
 
 ADD FILE ABOVE SHOWING ERD
 
+
 ## Django MVT Structure
 
 * The website was built using the model-view-template structure in Django.
-* Views are function-based.
+* All views created are function-based.
 
 ## Templates
 
@@ -142,17 +177,21 @@ as part of the Agile method and approach to workflow.
 * AWS was used to store static files after deployment.
 * Mockplus was used to create wireframes. MAY CHANGE THIS
 * Allauth was used for log-in, log-out, and sign-up authentication. 
+* Stripe was used to handle secure checkout and payment by credit card.
 
 
 ## Testing
 
-### Code Validation MUST COMPLETE VALIDATION OF ALL
+### Code Validation 
+
+MUST COMPLETE VALIDATION OF ALL
 
 * Python code was passed through the [Code Institute Python Linter](https://pep8ci.herokuapp.com/). No issues were found.
 
-* HTML code in the template files was validated using the [W3 Validator](https://validator.w3.org/nu/). No errors were found. 
+* HTML code in the template files was validated using the [W3 Validator](https://validator.w3.org/nu/). No errors were found. NOT COMPLETE
 
 * CSS code was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).
+NOT COMPLETE
 
 ### Other Testing
 
@@ -162,22 +201,39 @@ as part of the Agile method and approach to workflow.
 
 #### Test Case 1
 
-COMPLETE ONE OR MORE TEST CASES
-
-1. Open the live app. The user is shown a home page with a large 'Pop-up Restaurant' heading and a card showing the details of an upcoming event. The user notices that there is a 'Book now' button.
-2. Click 'Book now'. The user has not logged in so they are directed to a 'Log In' page. The user is not yet registered on the app. The user notices a 'Sign Up' link above the form.
-3. C
+1. Open the live app. The user is shown a home page with a large heading inviting the user to view local art. The user notices that there is a 'View Gallery' button.
+2. Click 'View Gallery'. The user is brought to the gallery/products page. The user notices that there are more products further down the page.
+3. Scroll down the page. The user sees a piece of art that they like. The user notices the 'View Details' button under the piece of art.
+4. Click the 'View Details' button. The user sees the detailed information page for that piece of art. 
+The user notices the 'Add to Basket' button.
+5. Click the 'Add to Basket' button.  The user notices a success message in the top right of the screen 
+with an 'x' in the corner.
+6. Click the 'x'. The success message disappears. The user notices the basket icon in the top-right of 
+the screen.
+7. Click the basket icon. The user sees the basket page with their item details in the 
+basket. The user notices the 'Secure Checkout' button.
+8. Click 'Secure Checkout'. The user sees the checkout form page. The user notices that the first 
+field is active.
+9. Type in personal details. The user notices the delivery information section.
+10. Type in delivery details. The user notices the payment information section.
+11. Type in payment details. The user notice the 'Complete Payment' button.
+12. Click 'Complete Payment'. The user sees the loading icon and then the successful checkout page.
 
 
 ### Fixed Bugs
 
 ADD FIXED BUGS
 
-* O
+* 
 
 ### Remaining Bugs
 
-ADD REMAINING BUGS
+* It is possible to purchase the same piece of art multiple times in different orders.
+* Stripe webhooks are not yet functioning correctly. In the event that a user closes the payment
+window before an order is created but after payment has been processed, there is no 
+back-up system in place to ensure the order is created. 
+* While the app is responsive on medium to large screens, on very small screens the checkout and 
+basket pages do not display correctly.
 
 ## Deployment
 
@@ -217,7 +273,8 @@ corresponding values:
 * Much of the process followed in the building of the application were those steps provided in the 
 Code Institute Boutique Ado project.
 * The Order and LineItem models are modified versions of those in the Boutique Ado project.
-* The images used are copyright-free images from [Unsplash](https://unsplash.com/). In particular, the 
+* The images used are copyright-free images from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/). In particular, the 
 following images are featured: 
-
-ADD IMAGE LINKS IF POSSIBLE
+  * [sheep in field](https://www.pexels.com/photo/five-sheeps-on-pasture-during-golden-hour-1650919/)
+  * [graffit portrait](https://unsplash.com/photos/floral-persons-portrait-graffiti-fT49QnFucQ8)
+  * [hands](https://unsplash.com/photos/two-human-hands-painting-k39RGHmLoV8)

@@ -12,7 +12,9 @@ class Order(models.Model, CountryField):
 
     order_number = models.CharField(max_length=2, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, blank=True, null=True, related_name='orders')
+    user_profile = models.ForeignKey(UserProfile,
+                                     on_delete=models.SET_NULL, blank=True,
+                                     null=True, related_name='orders')
     email = models.EmailField(max_length=284, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country*', null=False, blank=False)
@@ -22,9 +24,12 @@ class Order(models.Model, CountryField):
     postcode = models.CharField(max_length=20, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=4, decimal_places=2, null=False, default=20)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    delivery_cost = models.DecimalField(max_digits=4, decimal_places=2,
+                                        null=False, default=20)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
+    grand_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                      null=False, default=0)
 
     def __str__(self):
         return self.order_number
@@ -34,22 +39,32 @@ class Order(models.Model, CountryField):
         return uuid.uuid4().hex.upper()
 
     def save(self, *args, **kwargs):
-        """Override original save method to generate order number if not there"""
+        """
+        Override original save method to generate order number 
+        if not there
+        """
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
     def update_totals(self):
         """Update total and grand total when new order item added"""
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = self.lineitems.aggregate(
+                                Sum('lineitem_total'))[
+                                    'lineitem_total__sum'] or 0
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
+
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    artwork = models.ForeignKey(Artwork, null=False, blank=False, on_delete=models.CASCADE)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=1, editable=False)
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineitems')
+    artwork = models.ForeignKey(Artwork, null=False, blank=False,
+                                on_delete=models.CASCADE)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                         null=False, blank=False, default=1,
+                                         editable=False)
 
     def __str__(self):
         return f'{self.artwork.title} from order {self.order.order_number}'
-
