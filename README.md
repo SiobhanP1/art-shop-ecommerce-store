@@ -35,17 +35,14 @@ Facebook.
 
 ## UX
 
-### Wireframes
+### Layout
 
-#### Home Page
-
-![DESCRIPTION](static/images/FILE_NAME.png)
-
-
-#### Log In and Sign up Pages
-
-#### 
-#### PAGE NAME
+Layout follows conventions, particularly in the following:
+* The main navigation is at the top of the page, and the same navigation is visible on every page. It
+is possible to get to home, my basket, the products page or my account in one click.
+* The basket is accessed by clicking on the basket icon in the top right of the page (and with the main navigation).
+* 'My account' is accessed by clicking on a person icon to the left of the basket.
+* The main page icon is in the top left (on the main navigation).
 
 ### Typography and Color
 
