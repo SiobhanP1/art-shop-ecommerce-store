@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'basket',
     'checkout',
     'profiles',
+    'storages',
 ]
 
 SITE_ID = 1
@@ -177,6 +178,25 @@ STANDARD_DELIVERY_COST = 20
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if 'USE_AWS' in os.environ:
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'art-shop-ecommerce' # bucket name
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # static and media files
+    STATICFILES_STORAGE = 'custom_storage.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storage.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # override static and media files
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 
 # Stripe
 STRIPE_CURRENCY = 'eur'
