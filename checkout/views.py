@@ -167,8 +167,8 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
 
 
-    messages.success(request, f'Your order has been placed successfully.
-                     Your order number is {order_number}. A confirmation
+    messages.success(request, f'Your order has been placed successfully.\
+                     Your order number is {order_number}. A confirmation\
                      email will be sent to this email address: {order.email}')
 
     if 'basket' in request.session:
