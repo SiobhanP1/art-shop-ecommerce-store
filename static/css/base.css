@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Merienda:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+
 
 html {
     height: 100%;
 }
 
 body {
-    font-family: 'Merriweather', serif;
-    color: #3c4142;
+    /*font-family: 'Merriweather', serif;*/
+    font-family: 'Merienda', cursive;
+    color: #3c4142 !important;
 }
 
 h1, h2, h3 {
     color: #3c4142 !important;
+    font-family: 'Merienda', cursive;
+}
+
+.logo-font {
+    font-family: 'Bungee Inline', sans-serif !important;
+    font-size: larger;
 }
 
 .header-container {
@@ -28,6 +38,13 @@ h1, h2, h3 {
     top: 70px;
     right: 20px;
     z-index: 99;
+}
+
+/* -------------------------------- Custom Form Elements */
+
+.form-heading {
+    font-size: large;
+    font-weight: 600;
 }
 
 /* -------------------------------- Stripe Elements */

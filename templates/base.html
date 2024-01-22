@@ -53,7 +53,7 @@
             <div class="container-fluid">
                 <div class="">
                     <span class="navbar-brand">
-                        <a class="logo-font text-uppercase font-weight-bold" href="{% url 'home' %}">Artshop</a>
+                        <a class="logo-font" href="{% url 'home' %}">Artshop</a>
                     </span>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNavDropdown">
@@ -64,7 +64,10 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'all_artwork' %}">Gallery</a>
+                                <a class="nav-link" href="{% url 'all_artwork' %}">Print Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">About</a>
                             </li>
                         </ul>
                     </div>
