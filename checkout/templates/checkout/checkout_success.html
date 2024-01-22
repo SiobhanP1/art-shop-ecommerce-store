@@ -5,9 +5,9 @@
 <div class="row">
     <div class="col-12 col-lg-6">
         <section class="container header-container">
-            <div class="row">
-                <div class="mb-2">
-                    <h1 class="">Thank you for your order.</h1>
+            <div class="row text-center">
+                <div class="mb-4 mx-auto">
+                    <h1 class="">Thank you for your order, {{ order.full_name }}.</h1>
                 </div>
             </div>
         </section>
@@ -19,7 +19,7 @@
                     <div class="order-confirmation-wrapper">
                         <div class="row">
                             <div class="col">
-                                <h4 class="">Your Order</h4>
+                                <h4 class="mb-3 mt-3">Order Details:</h4>
                             </div>
                         </div>
                         <div class="row">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="">Order Details</h4>
+                                <h4 class="mb-3 mt-4">Ordered Item(s):</h4>
                             </div>
                         </div>
                         {% for item in order.lineitems.all %}
@@ -57,7 +57,7 @@
                         {% endfor %}
                         <div class="row">
                             <div class="col">
-                                <h4 class="">Delivering To</h4>
+                                <h4 class="mb-3 mt-4">Delivering To:</h4>
                             </div>
                         </div>
                         <div class="row">
@@ -132,7 +132,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="">Billing Info</h4>
+                                <h4 class="mb-3 mt-4">Billing Information:</h4>
                             </div>
                         </div>
                         <div class="row">
