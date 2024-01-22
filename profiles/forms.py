@@ -8,7 +8,7 @@ class UserProfileForm(forms.ModelForm):
         exclude = ('user',)
 
 
-    def __init__(*args, **kwargs):
+    def __init__(self, *args, **kwargs):
         """
         Add placeholders and autofocus on the first field in the form. 
         """
@@ -20,14 +20,15 @@ class UserProfileForm(forms.ModelForm):
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
             'default_county': 'County',
+            #'default_country': 'Country',
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus']=True
         for field in self.fields:
             if field != 'default_country':
                 placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+            #else:
+                #placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
         self.fields[field].widget.attrs['class'] = 'stripe-style-input'
         self.fields[field].label = False

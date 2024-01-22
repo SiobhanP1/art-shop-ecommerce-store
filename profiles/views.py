@@ -25,9 +25,10 @@ def profile(request):
 
     orders = profile.orders.all()
 
-    template = 'profile/profile.html'
+    template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
+        'on_profile_page': True,
     }
     return render(request, template, context)
