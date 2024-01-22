@@ -7,22 +7,22 @@ var elements = stripe.elements();
 var card = elements.create('card', {
     style: {
       base: {
-        iconColor: '#c4f0ff',
-        color: '#fff',
+        iconColor: '#3c4142',
+        color: '#3c4142',
         fontWeight: '500',
         fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
         fontSize: '16px',
         fontSmoothing: 'antialiased',
         ':-webkit-autofill': {
-          color: '#fce883',
+          color: '#3c4142',
         },
         '::placeholder': {
           color: '#87BBFD',
         },
       },
       invalid: {
-        iconColor: '#FFC7EE',
-        color: '#FFC7EE',
+        iconColor: '#dc3545',
+        color: '#dc3545',
       },
     },
   });
