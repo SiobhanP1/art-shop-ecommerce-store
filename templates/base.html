@@ -92,7 +92,13 @@
                                 <i class="bi bi-person-fill my-auto mx-auto"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownAccountMenu">
+                                {% if user.is_authenticated %}
                                 <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
+                                {% else %}
+                                <a class="dropdown-item" href="{% url 'account_login' %}">Log In</a>
+                                <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                                {% endif %}
                             </div>
                         </li>
                         <li class="nav-item list-inline-item">
