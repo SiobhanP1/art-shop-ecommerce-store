@@ -26,13 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = False
+DEBUG = 'DEVELOPMENT' in os.environ
+#DEBUG = False
 
 ALLOWED_HOSTS = ['8000-siobhanp1-artshopecomme-z1e63246gu9.ws-eu106.gitpod.io',
                  '8000-siobhanp1-artshopecomme-z1e63246gu9.ws-eu107.gitpod.io',
                  'art-shop-ecommerce.herokuapp.com',
-                 'localhost', ]
+                 'localhost', 
+                 'art-shop-ecommerce-71a1569e3f02.herokuapp.com',]
 
 
 # Application definition
