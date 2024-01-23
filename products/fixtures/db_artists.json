@@ -1,0 +1,1 @@
+[{"model": "products.artist", "pk": 1, "fields": {"full_name": "Kate Duffy", "about_artist": "blurb here."}}, {"model": "products.artist", "pk": 2, "fields": {"full_name": "Joseph Finnegan", "about_artist": "More blurb here"}}, {"model": "products.artist", "pk": 3, "fields": {"full_name": "Olivia Clarke", "about_artist": "blurb here"}}]
