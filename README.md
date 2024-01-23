@@ -10,13 +10,33 @@ the West of Ireland, as well as those interested in conversations about art and 
 * The live version can be accessed here: [Art Shop](https://art-shop-ecommerce-71a1569e3f02.herokuapp.com/)
 
 
-## E-Commerce Business Model / Marketing
+## E-Commerce Business
+
+### Business Model
 
 The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website, Q&A sessions, and sharing of tips and the stories behind the art. One key social media platform that will be used to do these things is 
 Facebook.
 
 ![Facebook Art Shop page](media/initial-facebook-page.png)
 ![Artist Spotlight](media/artist%201.png)
+
+
+### SEO & Marketing
+
+In order to facilitate higher search engine rankings, the following were implemented:
+* Careful consideration of possible keywords that users may use to search for sites 
+similar to this one. Inclusion of those keywords in the meta tags.
+* The use of semantic HTML to highlight important information throughout the site and the
+inclusion of keywords where appropriate in headings.
+* Inclusion of a sitemap.xml file.
+* 
+
+#### Areas to Improve
+
+* Include links to useful and valuable websites for the users.
+* Include useful content in the form of a blog with articles that are likely to prove
+useful to target users and bring them to the website.
+
 
 ## AGILE Methodology
 
@@ -33,6 +53,7 @@ Facebook.
 
 * Github Kanban board: User Stories were moved from 'To-do' to 'In Progress' to 'Complete' as work progressed.
 
+
 ## UX
 
 ### Layout
@@ -42,20 +63,34 @@ Layout follows conventions, particularly in the following:
 is possible to get to home, my basket, the products page or my account in one click.
 * The basket is accessed by clicking on the basket icon in the top right of the page (and with the main navigation).
 * 'My account' is accessed by clicking on a person icon to the left of the basket.
+* Easily recognisable symbols (shopping basket, person) are used on buttons linking to the shopping
+basket and account pages.
 * The main page icon is in the top left (on the main navigation).
+* Delivery information and social account links are located in the footer and are 
+visible on every page.
+
 
 ### Typography and Color
 
-* The font 'Merriweather' was used throughout the site. 
-* #3c4142 (charcoal grey) was used for all key text, both headings and body.
+#### Typography
+* The font 'Merienda' was used throughout the site for both headings and body text.
+* The font 'Bungee Inline' was used for the site logo.
+* Both fonts were chosen to lend the site a creative feel as the site is targeted 
+at users who wish to buy art. 
+
+#### Color
+* #3c4142 (charcoal grey) was used for all key text, both headings and body as it is
+less harsh than black while still providing high contrast with light backgrounds (thus
+maintaining ease of readability).
+
 
 ### Accessibility
 
 The following measures were taken to help ensure accessibility:
-* Images include an 'alt' description.
-* Where appropriate, HTML elements include 'aria-label' or 'aria-labelledby' attributes.
-* There is a high level of contrast between the background and any text through the site to help
-ensure readability.
+* All images include an 'alt' description.
+* Where appropriate, HTML elements include 'aria-label' or 'aria-labelledby' attributes to describe 
+the properties of elements to users visiting the site useing screen readers.
+* The level of contrast between the background and any text through the site has been measured.
 
 ## Features
 
