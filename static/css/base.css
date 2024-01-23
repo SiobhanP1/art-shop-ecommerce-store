@@ -102,3 +102,11 @@ box-shadow: 0 1px 3px 0 #cfd7df;
     max-height: 400px;
     overflow-y: auto;
 }
+
+/* -------------------------------- Footer */
+
+.social-icon {
+    font-size: larger;
+}
+
+/* -------------------------------- Media Queries */
