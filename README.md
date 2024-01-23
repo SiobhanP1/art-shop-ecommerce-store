@@ -7,12 +7,19 @@
 * The site is targeted at those interested in buying art particularly from artists based in 
 the West of Ireland, as well as those interested in conversations about art and the local art community.
 
+
+## Deployed Site
 * The live version can be accessed here: [Art Shop](https://art-shop-ecommerce-71a1569e3f02.herokuapp.com/)
 
+## Deployed Site Images
 
-## E-Commerce Business
+ADD IMAGES HERE ON VARIOUS DEVICES
+
+## E-Commerce Business Model & Marketing
 
 ### Business Model
+
+EDIT
 
 The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website, Q&A sessions, and sharing of tips and the stories behind the art. One key social media platform that will be used to do these things is 
 Facebook.
@@ -69,6 +76,9 @@ basket and account pages.
 * Delivery information and social account links are located in the footer and are 
 visible on every page.
 
+### Wireframes
+
+ADD WIREFRAMES HERE
 
 ### Typography and Color
 
@@ -91,6 +101,9 @@ The following measures were taken to help ensure accessibility:
 * Where appropriate, HTML elements include 'aria-label' or 'aria-labelledby' attributes to describe 
 the properties of elements to users visiting the site useing screen readers.
 * The level of contrast between the background and any text through the site has been measured.
+* Semantic HTML has been used throughout to help make the purpose of elements clear to screen 
+readers.
+
 
 ## Features
 
@@ -98,6 +111,8 @@ the properties of elements to users visiting the site useing screen readers.
 * The admin user can create, read/view, update and delete both products and orders after logging in to the admin dashboard.
 
 Key features are described below.
+
+ADD FEATURE IMAGES
 
 ### Navigation Bar
 
@@ -168,10 +183,23 @@ information.
 * Toast alerts inform the user of successful actions such as adding or removing an item from the basket, or the completion of an order.
 * toasts are also used to let the user know when there has been an error and an action cannot be carried out.
 
+### Custom 404 Error Page
+
+ADD IMAGE
+
+### Static Content Pages: Delivery Information & About Page
+
+ADD PURPOSE AND IMAGES
+
+### Checkout Page
+
+### Order Confirmation
+
+### Stripe Credit Card Payments
 
 ## Future Features
 
-* Order confirmation emails to be sent to users after successfully completing a user.
+* Order confirmation emails to be sent to users after successfully completing a purchase.
 * An 'About page.
 * A footer containing important links such as to detailed delivery information and 
 social media pages.
@@ -201,6 +229,8 @@ Custom data models were created as described below.
 * The OrderItem model is customised for order items in this application. Fields include the order,
 the artwork and the lineitem_total.
 
+ADD CHECKOUT AND PROFILE APP MODELS AND ERDs
+
 ### Entity Relationship Diagram (ERD)
 
 The Models used in the products and checkout apps in this project were mapped out as in the Entity Relationship Diagram below.
@@ -223,19 +253,54 @@ The Models used in the products and checkout apps in this project were mapped ou
 * All Allauth account templates use modified versions of the original allauth templates. The templates 
 were modified to fit the style of the website while keeping their original functionality.
 
+DJANGO TEMPLATE LANGUAGE
+
 ## Technology
 
-* Heroku was used to deploy the program.
+### Planning
+
+* WIREFRAMES: 
+* LucidChart was used to create Entity Relationship Diagrams (ERDs). 
+* AGILE TOOL: 
+
+### Development
+
 * Gitpod was used for editing.
 * Github was used for storing, sharing the repository and version control. Github Boards
 were used to store and plan user story, sprint, milestone and other required information
 as part of the Agile method and approach to workflow.
-* LucidChart was used to create the Entity Relationship Diagram (ERD). 
+
+#### Styling
+
 * Bootstrap classes and styles were used throughout the application with some modification.
-* ElephantSQL was used to store the database once deployed.
-* AWS was used to store static files after deployment.
+* Fonts were sourced from Google Fonts.
+* All icons used are Bootstrap icons.
+
+#### Testing
+
+* CHROME DEVELOPER TOOLS
+
+#### User Authentication
+
 * Allauth was used for log-in, log-out, and sign-up authentication. 
+
+#### Payments
+
+* STRIPE
 * Stripe was used to handle secure checkout and payment by credit card.
+
+### Deployment
+
+* Heroku was used to deploy the program.
+* GUNICORN
+
+#### Data
+
+* RELATIONAL DATABASE: ElephantSQL
+* ElephantSQL was used to store the database once deployed.
+
+#### Static & Media Files
+* AWS was used to store static files after deployment.
 
 
 ## Testing
@@ -251,11 +316,15 @@ No errors were found.
 
 ### Other Testing
 
+#### Responsiveness
+
 * This app was tested for responsiveness using the Google Chrome browser and Chrome DevTools. It has not been tested on other browsers. Some issues remain, particularly at smaller screen widths.
 
 ### Test Cases
 
 #### Test Case 1
+
+ADD IMAGES? 
 
 1. Open the live app. The user is shown a home page with a large heading inviting the user to view local art. The user notices that there is a 'View Gallery' button.
 2. Click 'View Gallery'. The user is brought to the gallery/products page. The user notices that there are more products further down the page.
@@ -278,6 +347,10 @@ field is active.
 
 ## Bugs
 
+### Fixed Bugs
+
+ADD FIXED BUGS
+
 ### Remaining Bugs
 
 * It is possible to purchase the same piece of art multiple times in different orders.
@@ -286,6 +359,7 @@ window before an order is created but after payment has been processed, there is
 back-up system in place to ensure the order is created. 
 * While the app is responsive on medium to large screens, on very small screens the checkout and 
 basket pages do not display correctly.
+
 
 ## Deployment
 
@@ -319,12 +393,19 @@ corresponding values:
 12. Select 'Manual Deploy'. 
 13. Click 'Deploy'.
 
+
+ADD HOW TO FORK 
+
 ## Credits
 
 * The initial template used to build the project was the ci-full-template provided for project use by Code Institute.
 * Much of the process followed in the building of the application were those steps provided in the 
 Code Institute Boutique Ado project.
 * The Order and LineItem models are modified versions of those in the Boutique Ado project.
+
+
+### Images
+
 * The images used are copyright-free images from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/). In particular, the 
 following images are featured: 
   * [sheep in field](https://www.pexels.com/photo/five-sheeps-on-pasture-during-golden-hour-1650919/)
