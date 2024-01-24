@@ -108,3 +108,15 @@ box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 /* -------------------------------- Media Queries */
+
+@media (max-width: 576px) {
+    
+    .my-basket-table {
+        font-size: small;
+    }
+
+    .order-confirmation-details {
+        font-size: small;
+    }
+
+}

@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block content %}
-<section class="container header-container">
-    <div class="row h-100 mt-100">
+<section class="container header-container h-100">
+    <div class="row h-100 mt-100 col-7 col-md-6 mx-auto">
         <div class="text-center mx-auto">
             <h1 class="">{{ artwork.title }}</h1>
-            <div class="my-5">
+            <div class="my-3">
                 <h4>A Painting By <strong>{{ artwork.artist }}</strong></h4>
             </div>
         </div>
     </div>
 </section>
-<section class="container">
-    <div class="row">
-        <div class="col-12">
+<section class="container h-100">
+    <div class="row h-100">
+        <div class="col-10 col-md-8 mx-auto">
             <div class="card h-100">
                 {% if artwork.image %}
                 <a href="">

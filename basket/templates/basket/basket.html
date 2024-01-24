@@ -3,7 +3,7 @@
 
 {% block content %}
 <section class="container header-container h-100">
-    <div class="row mt-100 text-center">
+    <div class="row mt-100 text-center h-100">
         <div class="mb-3 mx-auto">
             <h1 class="">My Basket</h1>
         </div>
@@ -11,14 +11,14 @@
 </section>
 
 <!--Basket contents are displayed here-->
-<section class="container results-container">
-    <div class="row">
-        <div class="col-12">
+<section class="container results-container h-100">
+    <div class="row h-100">
+        <div class="col-md-10 mx-auto">
             {% if basket_items %}
             <div class="text-center">
                 <p>You have {{ number_items }} item(s) in your basket.</p>
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive my-basket-table">
                 <table class="table table-borderless">
                     <thead>
                         <tr>
@@ -39,7 +39,9 @@
                                 <div class="">
                                     <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
                                         href="{% url 'remove_from_basket' item.item_id %}">
-                                        <small>Remove</small>
+                                        <small>
+                                            <i class="bi bi-x-circle"></i>
+                                        </small>
                                     </a>
                                 </div>
                             </td>
@@ -62,7 +64,7 @@
                         </tr>
                         <tr>
                             <td colspan="4" class="text-right">
-                                <a class="btn" href="{% url 'all_artwork' %}">Return to Gallery</a>
+                                <a class="btn" href="{% url 'all_artwork' %}"><i class="bi bi-arrow-left-short"></i>Return to Gallery</a>
                                 <a class="btn btn-info" href="{% url 'checkout' %}">Secure Checkout</a>
                             </td>
                         </tr>
@@ -70,9 +72,9 @@
                 </table>
             </div>
             {% else %}
-            <div>
+            <div class="text-center">
                 <p>Your basket is empty.</p>
-                <a class="btn btn-info rounded-0" href="{% url 'all_artwork' %}">Return to Gallery</a>
+                <a class="btn btn-info rounded-0" href="{% url 'all_artwork' %}"><i class="bi bi-arrow-left-short"></i>Return to Gallery</a>
             </div>
             {% endif %}
         </div>
