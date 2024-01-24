@@ -2,8 +2,8 @@
 
 ## Purpose
 
-* The external user goal is to view and purchase limited edition prints by local Dublin online.
-* The internal user goal is to provide a means of selling limited edition by local artists online.
+* The external user goal is to view and purchase limited edition prints by local artists online.
+* The internal user goal is to provide a means of selling limited edition prints by local artists online.
 * The site is targeted at those interested in buying art particularly from artists based in 
 Dublin, as well as those interested in conversations about art and supporting the local artist community.
 
@@ -17,9 +17,11 @@ Dublin, as well as those interested in conversations about art and supporting th
 
 ### Business Model
 
+Income is generated through the sale of prints with a share of profit going directly to the artist and the other to the site owner.
+
 ### SEO & Marketing
 
-The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website, Q&A sessions, and sharing of the stories behind the art. Both Facebook and Instagram will be used.
+The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website and sharing of the stories behind the art. Both Facebook and Instagram will be used.
 
 ![Facebook Art Shop page](static/images/initial-facebook-page.png)
 
@@ -40,7 +42,7 @@ inclusion of keywords where appropriate in headings.
 
 * Include links to useful and valuable websites for the users.
 * Include useful content in the form of a blog with articles that are likely to prove
-useful to target users and bring them to the website.
+useful to target users and bring traffic to the website.
 
 
 ## AGILE Methodology
