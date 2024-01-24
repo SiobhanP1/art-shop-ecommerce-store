@@ -13,16 +13,9 @@ Dublin, as well as those interested in conversations about art and supporting th
 
 ## Deployed Site Images
 
-ADD IMAGES HERE ON VARIOUS DEVICES
-
 ## E-Commerce Business Model & Marketing
 
 ### Business Model
-
-EDIT
-
-
-
 
 ### SEO & Marketing
 
@@ -66,9 +59,9 @@ useful to target users and bring them to the website.
 * Github Kanban board: User Stories were moved from 'To-do' to 'In Progress' to 'Complete' as work progressed.
 * Tasks and Acceptance Criteria were identified and listed for user stories.
 
-## UX
+## UI & UX
 
-Much work remains to be completed in terms of providing a coherant and visually-appealing style.
+The site is very basic in terms of design. Much work remains to be completed in terms of providing a more coherant and visually-appealing style.
 
 ### Layout
 
@@ -85,8 +78,6 @@ visible on every page.
 
 ### Wireframes
 
-ADD WIREFRAMES HERE
-
 ### Typography and Color
 
 #### Typography
@@ -102,7 +93,6 @@ at users who wish to buy art.
 less harsh than black while still providing high contrast with light backgrounds (thus
 maintaining ease of readability).
 
-
 ### Accessibility
 
 The following measures were taken to help ensure accessibility:
@@ -111,7 +101,6 @@ The following measures were taken to help ensure accessibility:
 the properties of elements to users visiting the site useing screen readers.
 * The level of contrast between the background and any text through the site has been measured.
 * Semantic HTML has been used throughout where appropriate to help make the purpose of elements clear to screen readers.
-
 
 ## Features
 
@@ -197,21 +186,31 @@ information.
 
 ### Checkout Page
 
-* 
+### My Profile Page
+
+* Displays saved user information and order history.
+* Can only be accessed by a logged in user.
+* The user can add, save, change and delete personal details.
 
 ### Order Confirmation
 
+* Displays a success message and key order information.
+
 ### Stripe Credit Card Payments
+
+* Payments by credit card are handled by stripe.
+* The card element follows Stripe styling with some minor modifications.
+* The user must enter their card number, expiry date and three-digit code.
 
 ## Future Features
 
 * Order confirmation emails to be sent to users after successfully completing a purchase.
-* A Profile page through which logged-in users can access their profile page, view previous orders and view, add, edit or delete personal information.
 * A footer containing important links such as to detailed delivery information and 
 social media pages.
 * An order summary to be displayed on the checkout page.
 * Alternative payment options to be provided when checking out.
 * A hero image on the home page.
+* Improved styling and layout to be added throughout the site.
 * A more extensive collection of artwork, each with relevant data.
 
 ## Data Model
@@ -258,7 +257,6 @@ The Models used in the products and checkout apps in this project were mapped ou
 * All Allauth account templates use modified versions of the original allauth templates. The templates 
 were modified to fit the style of the website while keeping their original functionality.
 
-DJANGO TEMPLATE LANGUAGE
 
 ## Technology
 
@@ -295,8 +293,7 @@ as part of the Agile method and approach to workflow.
 
 ### Deployment
 
-* Heroku was used to deploy the program.
-* GUNICORN
+* Heroku was used to deploy the application.
 
 #### Data / Relational Database
 
@@ -327,6 +324,7 @@ No errors were found.
 #### Payments
 
 * Stripe was used to confirm successful payment using the test credit cards provided.
+* Extensive further testing needs to be carried out. 
 
 ### Test Cases
 
@@ -355,14 +353,16 @@ field is active.
 
 ### Fixed Bugs
 
-* 
-
 ### Remaining Bugs
 
 * Stripe webhooks are not yet functioning correctly. In the event that a user closes the payment
 window before an order is created but after payment has been processed, there is no 
 back-up system in place to ensure the order is created. 
-* There is an issue with the profile page. This will be dealt with in a future iteration.
+* Payments can be completed in both development and production (and can be confirmed on Stripe), 
+however, the payment success page only currently displays in development. (A 500 Error shows in 
+the deployed application.)
+* Stripe test cards are charged the current amount during checkout, however in Order History on 
+the user's profile page, the product total displays as one Euro.
 
 
 ## Deployment
@@ -412,7 +412,6 @@ corresponding values:
 * Much of the process followed in the building of the application were those steps provided in the 
 Code Institute Boutique Ado project.
 * The Order and LineItem models are modified versions of those in the Boutique Ado project.
-
 
 ### Images
 
