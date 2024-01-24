@@ -92,8 +92,8 @@ def checkout(request):
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount = stripe_total,
-            currency = settings.STRIPE_CURRENCY,
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
         )
 
         current_basket = basket_contents(request)
@@ -101,15 +101,15 @@ def checkout(request):
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount = stripe_total,
-            currency = settings.STRIPE_CURRENCY,
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
         )
 
         # Prefill form with current data
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                order_form = OrderForm(initial= {
+                order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
@@ -165,7 +165,6 @@ def checkout_success(request, order_number):
                                                 instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
 
     messages.success(request, f'Your order has been placed successfully.\
                      Your order number is {order_number}. A confirmation\

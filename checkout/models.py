@@ -40,7 +40,7 @@ class Order(models.Model, CountryField):
 
     def save(self, *args, **kwargs):
         """
-        Override original save method to generate order number 
+        Override original save method to generate order number
         if not there
         """
         if not self.order_number:

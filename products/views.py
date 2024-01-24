@@ -3,7 +3,7 @@ from django.shortcuts import redirect, reverse
 from django.db.models import Q
 from django.contrib import messages
 
-from .models import Artwork, Artist
+from .models import Artwork
 
 
 def all_artwork(request):
@@ -19,7 +19,9 @@ def all_artwork(request):
                 messages.error(request, 'Please enter a search query.')
                 return redirect(reverse('all_artwork'))
             queries = Q(
-                title__icontains=query) | Q(description__icontains=query) | Q(main_media__icontains=query)
+                        title__icontains=query) | Q(
+                        description__icontains=query
+                        ) | Q(main_media__icontains=query)
             all_artwork = all_artwork.filter(queries)
 
     # all_artwork refers to query, sort or view all request results
