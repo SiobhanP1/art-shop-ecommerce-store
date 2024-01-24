@@ -186,6 +186,9 @@ information.
 
 ### Checkout Page
 
+* Display a form in which the user can enter their address and payment information.
+* Logged in users will find this form prepopulated with saved address details.
+
 ### My Profile Page
 
 * Displays saved user information and order history.
@@ -212,6 +215,8 @@ social media pages.
 * A hero image on the home page.
 * Improved styling and layout to be added throughout the site.
 * A more extensive collection of artwork, each with relevant data.
+* Admin users can currently only access the admin dashboard to view, edit, save or delete order, product and user information via the '/admin' URL. In the future, links (via buttons) will be added to the site 
+for the admin user to access that information.  
 
 ## Data Model
 
