@@ -14,6 +14,10 @@ from pathlib import Path
 
 import os
 import dj_database_url
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +29,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEVELOPMENT' in os.environ
+#DEBUG = False
 
 ALLOWED_HOSTS = ['8000-siobhanp1-artshopecomme-z1e63246gu9.ws-eu106.gitpod.io',
                  '8000-siobhanp1-artshopecomme-z1e63246gu9.ws-eu107.gitpod.io',
