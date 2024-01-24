@@ -3,6 +3,8 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """Model for the profile display form on the profile page"""
+
     class Meta:
         model = UserProfile
         exclude = ('user',)
@@ -10,25 +12,10 @@ class UserProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and autofocus on the first field in the form. 
+        Add placeholders and set autofocus on the first field in the form. 
         """
-        super().__init__(self, *args, **kwargs)
-        placeholders = {
-            'default_phone_number': 'Phone Number',
-            'default_postcode': 'Postcode',
-            'default_town_or_city': 'Town or City',
-            'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',
-            'default_county': 'County',
-            #'default_country': 'Country',
-        }
+        super().__init__(*args, **kwargs)
 
-        self.fields['default_phone_number'].widget.attrs['autofocus']=True
         for field in self.fields:
-            #if field != 'default_country':
-            #    placeholder = f'{placeholders[field]} *'
-            #else:
-                #placeholder = placeholders[field]
-            #    self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields['default_phone_number'].widget.attrs['autofocus']=True
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-        #self.fields[field].label = False
