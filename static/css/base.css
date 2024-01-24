@@ -126,4 +126,8 @@ box-shadow: 0 1px 3px 0 #cfd7df;
         font-size: small;
     }
 
+    .order-history-table {
+        font-size: small;
+    }
+
 }
