@@ -2,10 +2,10 @@
 
 ## Purpose
 
-* The external user goal is to view and purchase art by artists from the West of Ireland online.
-* The internal user goal is to provide a means of selling art by local artists online.
+* The external user goal is to view and purchase limited edition prints by local Dublin online.
+* The internal user goal is to provide a means of selling limited edition by local artists online.
 * The site is targeted at those interested in buying art particularly from artists based in 
-the West of Ireland, as well as those interested in conversations about art and the local art community.
+Dublin, as well as those interested in conversations about art and supporting the local artist community.
 
 
 ## Deployed Site
@@ -21,14 +21,20 @@ ADD IMAGES HERE ON VARIOUS DEVICES
 
 EDIT
 
-The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website, Q&A sessions, and sharing of tips and the stories behind the art. One key social media platform that will be used to do these things is 
-Facebook.
 
-![Facebook Art Shop page](media/initial-facebook-page.png)
-![Artist Spotlight](media/artist%201.png)
 
 
 ### SEO & Marketing
+
+The key marketing strategy is social media marketing with the aim of building trust and a community through regular interviews with the artists who sell on the website, Q&A sessions, and sharing of the stories behind the art. Both Facebook and Instagram will be used.
+
+![Facebook Art Shop page](static/images/initial-facebook-page.png)
+
+#### Artist Spotlight
+
+![Artist Spotlight](static/images/artist%201.png)
+
+#### SEO
 
 In order to facilitate higher search engine rankings, the following were implemented:
 * Careful consideration of possible keywords that users may use to search for sites 
@@ -36,9 +42,8 @@ similar to this one. Inclusion of those keywords in the meta tags.
 * The use of semantic HTML to highlight important information throughout the site and the
 inclusion of keywords where appropriate in headings.
 * Inclusion of a sitemap.xml file.
-* 
 
-#### Areas to Improve
+#### SEO Areas to Improve
 
 * Include links to useful and valuable websites for the users.
 * Include useful content in the form of a blog with articles that are likely to prove
@@ -59,9 +64,11 @@ useful to target users and bring them to the website.
 ### USER STORIES
 
 * Github Kanban board: User Stories were moved from 'To-do' to 'In Progress' to 'Complete' as work progressed.
-
+* Tasks and Acceptance Criteria were identified and listed for user stories.
 
 ## UX
+
+Much work remains to be completed in terms of providing a coherant and visually-appealing style.
 
 ### Layout
 
@@ -83,12 +90,14 @@ ADD WIREFRAMES HERE
 ### Typography and Color
 
 #### Typography
+
 * The font 'Merienda' was used throughout the site for both headings and body text.
 * The font 'Bungee Inline' was used for the site logo.
 * Both fonts were chosen to lend the site a creative feel as the site is targeted 
 at users who wish to buy art. 
 
 #### Color
+
 * #3c4142 (charcoal grey) was used for all key text, both headings and body as it is
 less harsh than black while still providing high contrast with light backgrounds (thus
 maintaining ease of readability).
@@ -101,18 +110,17 @@ The following measures were taken to help ensure accessibility:
 * Where appropriate, HTML elements include 'aria-label' or 'aria-labelledby' attributes to describe 
 the properties of elements to users visiting the site useing screen readers.
 * The level of contrast between the background and any text through the site has been measured.
-* Semantic HTML has been used throughout to help make the purpose of elements clear to screen 
-readers.
+* Semantic HTML has been used throughout where appropriate to help make the purpose of elements clear to screen readers.
 
 
 ## Features
 
-* Features were added to provide the user with CRUD (Create, Read, Update, Delete) functionality. After logging in, the user can create a booking, read/view it, update it and delete it. 
+### CRUD
+
+* Features were added to provide the user with CRUD (Create, Read, Update, Delete) functionality. 
+* External users can view, update, delete and add items to their basket.
+* External users complete and submit a front-end form during checkout.
 * The admin user can create, read/view, update and delete both products and orders after logging in to the admin dashboard.
-
-Key features are described below.
-
-ADD FEATURE IMAGES
 
 ### Navigation Bar
 
@@ -121,11 +129,9 @@ ADD FEATURE IMAGES
 home page.
 * The 'Art' button brings the users directly to the product display page.
 * The search bar in the center of the navigation bar allows the users to search for 
-products using keywords.
+products using keywords including artist name, artwork title and media used.
 * The 'person' icon in the top right of the screen provides a quick link to account
-information. Logged-in users can click on 'My Profile' to be brought to their profile
-and order history page. Logged-out users are brought to the sign in page when they click
-on 'My Profile'. 
+information via a drop-down menu. External users can register, log-in and log-out.
 * At the very right of the screen, there is a basket icon. Clicking this icon brings 
 the users to the basket page.
 * The navigation bar is visible on all pages, providing quick links to all parts of 
@@ -135,8 +141,6 @@ the site.
 
 * The sign in, log in and log out pages are modified versions of the templates provided by
 Allauth for user account and authentication.
-* Logged-in users can access their profile page, view previous orders and edit or delete 
-their information.
 * The sign in and log in form inputs use built-in Django validation to check that the user 
 enters a suitable password and username. 
 * Logged-in admin users can access the admin dashboard and view, edit, add and delete product,
@@ -181,17 +185,19 @@ information.
 ### Toast Alerts
 
 * Toast alerts inform the user of successful actions such as adding or removing an item from the basket, or the completion of an order.
-* toasts are also used to let the user know when there has been an error and an action cannot be carried out.
+* Toasts are also used to let the user know when there has been an error and an action cannot be carried out.
 
 ### Custom 404 Error Page
 
-ADD IMAGE
+* A custom 404 page is displayed when a user attempts to navigate to a non-existant page on the website.
 
 ### Static Content Pages: Delivery Information & About Page
 
-ADD PURPOSE AND IMAGES
+* Further information about the company and delivery is provided on the 'Delivery' and 'About' pages.
 
 ### Checkout Page
+
+* 
 
 ### Order Confirmation
 
@@ -200,7 +206,7 @@ ADD PURPOSE AND IMAGES
 ## Future Features
 
 * Order confirmation emails to be sent to users after successfully completing a purchase.
-* An 'About page.
+* A Profile page through which logged-in users can access their profile page, view previous orders and view, add, edit or delete personal information.
 * A footer containing important links such as to detailed delivery information and 
 social media pages.
 * An order summary to be displayed on the checkout page.
@@ -223,29 +229,28 @@ Custom data models were created as described below.
 * The Artist Model specifies the information to be stored about each artist in the database.
 * Fields include the full_name of the artist, and an about_artist attribute.
 
-### Model 3
+### Models 3, 4: Order, OrderItem
 
 * The checkout app has both an Order model and an OrderItem model.
 * The OrderItem model is customised for order items in this application. Fields include the order,
 the artwork and the lineitem_total.
 
-ADD CHECKOUT AND PROFILE APP MODELS AND ERDs
+### Additional Models
+
+* The 'profile' app uses a Profile model to store useful information about users.
 
 ### Entity Relationship Diagram (ERD)
 
 The Models used in the products and checkout apps in this project were mapped out as in the Entity Relationship Diagram below.
 
-![entity relationship diagram](media/products-checkout-erd.png)
-
-### Additional Models
-/workspace/art-shop-ecommerce-store/art_shop
-* The 'profile' app uses a Profile model to store useful information about users.
+![entity relationship diagram](static/images/products-checkout-erd.png)
 
 
 ## Django MVT Structure
 
 * The website was built using the model-view-template structure in Django.
 * All views created are function-based.
+
 
 ## Templates
 
@@ -259,9 +264,9 @@ DJANGO TEMPLATE LANGUAGE
 
 ### Planning
 
-* WIREFRAMES: 
+* Figma was used for the creation of wireframes.
 * LucidChart was used to create Entity Relationship Diagrams (ERDs). 
-* AGILE TOOL: 
+* AGILE TOOL: Github Boards was used as the primary Agile tool for the listing of User Story information, prioritization and organisation into sprints and milestones. 
 
 ### Development
 
@@ -278,7 +283,7 @@ as part of the Agile method and approach to workflow.
 
 #### Testing
 
-* CHROME DEVELOPER TOOLS
+* Chrome Developer Tools was used for responsiveness testing.
 
 #### User Authentication
 
@@ -286,7 +291,6 @@ as part of the Agile method and approach to workflow.
 
 #### Payments
 
-* STRIPE
 * Stripe was used to handle secure checkout and payment by credit card.
 
 ### Deployment
@@ -294,13 +298,13 @@ as part of the Agile method and approach to workflow.
 * Heroku was used to deploy the program.
 * GUNICORN
 
-#### Data
+#### Data / Relational Database
 
-* RELATIONAL DATABASE: ElephantSQL
 * ElephantSQL was used to store the database once deployed.
 
 #### Static & Media Files
-* AWS was used to store static files after deployment.
+
+* AWS was used to store static and media files after deployment.
 
 
 ## Testing
@@ -318,13 +322,15 @@ No errors were found.
 
 #### Responsiveness
 
-* This app was tested for responsiveness using the Google Chrome browser and Chrome DevTools. It has not been tested on other browsers. Some issues remain, particularly at smaller screen widths.
+* This app was tested for responsiveness using the Google Chrome browser and Chrome DevTools. It has not been tested on other browsers.
+
+#### Payments
+
+* Stripe was used to confirm successful payment using the test credit cards provided.
 
 ### Test Cases
 
 #### Test Case 1
-
-ADD IMAGES? 
 
 1. Open the live app. The user is shown a home page with a large heading inviting the user to view local art. The user notices that there is a 'View Gallery' button.
 2. Click 'View Gallery'. The user is brought to the gallery/products page. The user notices that there are more products further down the page.
@@ -349,16 +355,14 @@ field is active.
 
 ### Fixed Bugs
 
-ADD FIXED BUGS
+* 
 
 ### Remaining Bugs
 
-* It is possible to purchase the same piece of art multiple times in different orders.
 * Stripe webhooks are not yet functioning correctly. In the event that a user closes the payment
 window before an order is created but after payment has been processed, there is no 
 back-up system in place to ensure the order is created. 
-* While the app is responsive on medium to large screens, on very small screens the checkout and 
-basket pages do not display correctly.
+* There is an issue with the profile page. This will be dealt with in a future iteration.
 
 
 ## Deployment
@@ -393,8 +397,14 @@ corresponding values:
 12. Select 'Manual Deploy'. 
 13. Click 'Deploy'.
 
+### How to Fork this Repository
 
-ADD HOW TO FORK 
+1. Go to http://github.com.
+2. Create a Github account.
+3. Open the 'SiobhanP1/art-shop-ecommerce-store' repository.
+4. Click 'Fork' in the top-left of the screen.
+5. Select 'Create a new fork'. 
+6. A forked repository will be created in your Github account.
 
 ## Credits
 
