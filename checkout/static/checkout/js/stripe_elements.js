@@ -3,7 +3,7 @@ var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
-/* CSS below directly from stripe.com */
+// CSS below directly from stripe.com
 var card = elements.create('card', {
     style: {
       base: {
@@ -43,7 +43,6 @@ card.addEventListener('change', function(event) {
 )
 
 // Handle form submit event
-
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {

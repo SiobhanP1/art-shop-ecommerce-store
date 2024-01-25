@@ -322,7 +322,55 @@ as part of the Agile method and approach to workflow.
 * CSS code was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).
 No errors were found.
 
-### Other Testing
+### Manual Testing
+
+#### Functionality
+
+##### Authorisation & Security
+
+ | Functionality Tested                          | Development                | Production           | 
+ | :-------------------------------------------  | :-----------------------   | :------------------- |
+ | New user can register                             | Yes                | Yes           | 
+ | Registered user can log in and out            | Yes                | Yes           | 
+ | Registered user can view, edit, update own profile info on profile page                         | Yes                | Yes           | 
+ | Profile and checkout pgs not accessible to logged out users via URL                          | Yes                | Yes           | 
+ | 'My Profile' and 'Log Out' buttons in navigation only visible to logged in users                         | Yes                | Yes           | 
+ | Both logged in and out users can add, remove, view items from basket                          | Yes                | Yes           | 
+ | Checkout page can only be accessed from 'Secure Checkout' button on basket page                         | Yes                | Yes           | 
+
+##### Notifications & Confirmation Messages
+
+| Functionality Tested                          | Development                | Production           | 
+ | :-------------------------------------------  | :-----------------------   | :------------------- |
+ | Confirmation message (toast) appears when item added to or removed from basket                             | Yes                | Yes           | 
+ | Confirmation message (toast) appears when user logs in, out or registers                             | Yes                | Yes           | 
+ | Successful order toast & page displayed when a purchase is completed successfully                             | Yes                | To be fixed           | 
+ | Successful order page displays order details                             | Yes                | To be fixed           | 
+
+##### Payments
+
+| Functionality Tested                          | Development                | Production           | 
+ | :-------------------------------------------  | :-----------------------   | :------------------- |
+ | Both logged in and out users can complete checkout                             | Yes                | To be fixed           | 
+ | All payments confirmed on Stripe website                             | Yes                | Yes           | 
+ | Webhooks working.                             | Yes                | To be fixed           | 
+ | Saved user profile information automatically displayed in checkout form                            | Yes                | To be fixed           | 
+
+##### User Profile
+
+| Functionality Tested                          | Development                | Production           | 
+ | :-------------------------------------------  | :-----------------------   | :------------------- |
+ | Saved user profile information can be viewed on 'My Profile' page                             | Yes                | Yes           | 
+ | User's order history accurately displayed on 'My Profile' page                             | Yes                | To be fixed           | 
+ | Profile information can be viewed, edited, updated, removed by user.                             | Yes                | Yes           | 
+
+##### Admin
+
+| Functionality Tested                          | Development                | Production           | 
+ | :-------------------------------------------  | :-----------------------   | :------------------- |
+ | Admin user can log in and out via Django admin log in at .../admin/           | 
+ | Admin user can view, update, delete and add user, product and order information via the admin dashboard.                             | Yes                | Yes           | 
+
 
 #### Responsiveness
 
@@ -330,8 +378,13 @@ No errors were found.
 
 #### Payments
 
-* Stripe was used to confirm successful payment using the test credit cards provided.
+* Stripe was used to confirm payment events.
+* Test payments were carried out using Stripe test card numbers.
 * Extensive further testing needs to be carried out. 
+
+### Automatic Testing
+
+Automatic testing is not yet in place.
 
 ### Test Cases
 
@@ -362,14 +415,13 @@ field is active.
 
 ### Remaining Bugs
 
-* Stripe webhooks are not yet functioning correctly. In the event that a user closes the payment
-window before an order is created but after payment has been processed, there is no 
+* Stripe webhooks are not yet set up correctly on the deployed site. In the event that a user closes the payment window before an order is created but after payment has been processed, there is no 
 back-up system in place to ensure the order is created. 
 * Payments can be completed in both development and production (and can be confirmed on Stripe), 
 however, the payment success page only currently displays in development. (A 500 Error shows in 
 the deployed application.)
-* Stripe test cards are charged the current amount during checkout, however in Order History on 
-the user's profile page, the product total displays as one Euro.
+* Stripe test cards are charged the correct amount during checkout (and the correct total is displayed in both the basket and at checkout). The Order History section, however, on 
+the user's profile page, displays incorrect totals for each order.
 
 
 ## Deployment
@@ -396,8 +448,12 @@ corresponding values:
 * AWS_ACCESS_KEY_ID: from the AWS storage bucket
 * AWS_SECRET_ACCESS_KEY: from the AWS storage bucket
 * DATABASE_URL: add ElephantSQL database URL here
-* SECRET_KEY
+* SECRET_KEY: can be generated
 * USE_AWS: True
+* STRIPE_SECRET_KEY: from your Stripe account.
+* STRIPE_PUBLIC_KEY: from Stripe account.
+* STRIPE_WH_SECRET: 'Signing secret' under Webhook for your app URL.
+* PRODUCTION: True
 9. Go to 'Deploy' and then 'Deployment Method'.
 10. Select 'Connect to Github'.
 11. Enter the repository name.
