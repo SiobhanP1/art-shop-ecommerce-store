@@ -330,7 +330,7 @@ No errors were found.
 
  | Functionality Tested                          | Development                | Production           | 
  | :-------------------------------------------  | :-----------------------   | :------------------- |
- | New user can register                             | Yes                | Yes           | 
+ | New user can register                             | Yes                | 500 Error           | 
  | Registered user can log in and out            | Yes                | Yes           | 
  | Registered user can view, edit, update own profile info on profile page                         | Yes                | Yes           | 
  | Profile and checkout pgs not accessible to logged out users via URL                          | Yes                | Yes           | 

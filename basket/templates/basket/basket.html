@@ -64,7 +64,8 @@
                         </tr>
                         <tr>
                             <td colspan="4" class="text-right">
-                                <a class="btn" href="{% url 'all_artwork' %}"><i class="bi bi-arrow-left-short"></i>Return to Gallery</a>
+                                <a class="btn" href="{% url 'all_artwork' %}"><i
+                                        class="bi bi-arrow-left-short"></i>Return to Gallery</a>
                                 <a class="btn btn-info" href="{% url 'checkout' %}">Secure Checkout</a>
                             </td>
                         </tr>
@@ -74,7 +75,8 @@
             {% else %}
             <div class="text-center">
                 <p>Your basket is empty.</p>
-                <a class="btn btn-info rounded-0" href="{% url 'all_artwork' %}"><i class="bi bi-arrow-left-short"></i>Return to Gallery</a>
+                <a class="btn btn-info rounded-0" href="{% url 'all_artwork' %}"><i
+                        class="bi bi-arrow-left-short"></i>Return to Gallery</a>
             </div>
             {% endif %}
         </div>
@@ -87,7 +89,6 @@
 {{ block.super }}
 
 <script type="text/javascript">
-
     // Remove item from bag and reload page
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";

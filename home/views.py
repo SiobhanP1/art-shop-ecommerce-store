@@ -14,3 +14,8 @@ def about(request):
 def delivery(request):
     """A view to return the delivery page"""
     return render(request, 'home/delivery.html')
+
+
+def connect(request):
+    """A view to return the connect page"""
+    return render(request, 'home/connect.html')
